@@ -1,11 +1,10 @@
 import './AboutProject.css'  
+import SectionsHeader from '../SectionsHeader/SectionsHeader';
 
 function AboutProject () {
     return (
         <section className='aboutProject'>
-          <div className='aboutProject__header'>
-            <h2 className='aboutProject__title'>О проекте</h2>
-          </div>  
+          <SectionsHeader title='О проекте' />
           <ul className='aboutProject__info'>
             <li className='aboutProject__info-list'>
                 <h3 className='aboutProject__info-subtitle'>Дипломный проект включал 5 этапов</h3>

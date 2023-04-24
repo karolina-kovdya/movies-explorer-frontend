@@ -3,23 +3,6 @@
     margin: 110px 70px;
 }
 
-.aboutProject__header {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    border-bottom: 1px solid #000;
-}
-
-.aboutProject__title {
-    margin: 0 0 23px 0;
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 27px;
-    letter-spacing: -0.04em;
-}
-
 .aboutProject__info {
     margin: 70px 0 0 0;
     padding: 0;
