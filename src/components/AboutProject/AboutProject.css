@@ -1,0 +1,77 @@
+.aboutProject {
+    width: 1140px;
+    margin: 110px 70px;
+}
+
+.aboutProject__header {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #000;
+}
+
+.aboutProject__title {
+    margin: 0 0 23px 0;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+    letter-spacing: -0.04em;
+}
+
+.aboutProject__info {
+    margin: 70px 0 0 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.aboutProject__info-subtitle {
+    margin: 0 0 26px 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.04em;
+}
+
+.aboutProject__tetx {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.aboutProject__schedule {
+    margin: 110px 0 0 0;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 2fr;
+}
+
+.aboutProject__schedule_theme {
+    margin: 0;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    padding: 9px;
+}
+
+.aboutProject__schedule_theme_green {
+    background-color: #2BE080;
+    font-weight: 400;
+}
+
+.aboutProject__schedule_theme_grey {
+    background-color: #F2F2F2;;
+    font-weight: 400;
+}
+
+.aboutProject__schedule_theme_white {
+    color: #A0A0A0;
+    font-weight: 500;
+}
