@@ -1,26 +1,22 @@
 import './Techs.css'  
+import SectionsHeader from '../SectionsHeader/SectionsHeader';
 
 function Techs () {
     return (
-        <section className='aboutProject'>
-          <div className='aboutProject__header'>
-            <h2 className='aboutProject__title'>О проекте</h2>
-          </div>  
-          <ul className='aboutProject__info'>
-            <li className='aboutProject__info-list'>
-                <h3 className='aboutProject__info-subtitle'>Дипломный проект включал 5 этапов</h3>
-                <p className='aboutProject__tetx'>Составление плана, работу над бэкендом, вёрстку, добавление функциональности и финальные доработки.</p>
-            </li>
-            <li className='aboutProject__info-list'>
-                <h3 className='aboutProject__info-subtitle'>На выполнение диплома ушло 5 недель</h3>
-                <p className='aboutProject__tetx'>У каждого этапа был мягкий и жёсткий дедлайн, которые нужно было соблюдать, чтобы успешно защититься.</p>
-            </li>
-          </ul>
-          <div className='aboutProject__schedule'>
-            <p className='aboutProject__schedule_theme aboutProject__schedule_theme_green'>1 неделя</p>
-            <p className='aboutProject__schedule_theme aboutProject__schedule_theme_grey'>4 недели</p>
-            <p className='aboutProject__schedule_theme aboutProject__schedule_theme_white'>Back-end</p>
-            <p className='aboutProject__schedule_theme aboutProject__schedule_theme_white'>Front-end</p>
+        <section className='techs'> 
+        <SectionsHeader title='Технологии' />
+          <div className='techs__info'>
+            <h2 className='techs__subtitle'>7 технологий</h2>
+            <p className='techs__text'>На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.</p>
+            <ul className='techs__icon-list'>
+                <li className='techs__icon'>HTML</li>
+                <li className='techs__icon'>CSS</li>
+                <li className='techs__icon'>JS</li>
+                <li className='techs__icon'>React</li>
+                <li className='techs__icon'>Git</li>
+                <li className='techs__icon'>Express.js</li>
+                <li className='techs__icon'>mongoDB</li>
+            </ul>
           </div>
         </section>
     )
