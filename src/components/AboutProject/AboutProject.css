@@ -11,6 +11,10 @@
     list-style: none;
 }
 
+.aboutProject__info-list {
+    width: 550px;
+}
+
 .aboutProject__info-subtitle {
     margin: 0 0 26px 0;
     font-family: 'Inter';
@@ -22,6 +26,7 @@
 }
 
 .aboutProject__tetx {
+    margin: 26px 0 0 0;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -50,7 +55,7 @@
 }
 
 .aboutProject__schedule_theme_grey {
-    background-color: #F2F2F2;;
+    background-color: #F2F2F2;
     font-weight: 400;
 }
 

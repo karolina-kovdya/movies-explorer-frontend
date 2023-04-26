@@ -1,0 +1,114 @@
+.aboutMe {
+    width: 1140px;
+    margin: 110px 70px;
+}
+
+.aboutMe__profile {
+    display: flex;
+    justify-content: space-between;
+    margin: 66px 0 0 0;
+}
+
+.abouteMe__profile-info {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+.aboutMe__name {
+    margin: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
+    letter-spacing: -0.04em;
+}
+
+.aboutMe__job {
+    margin: 18px 0 0 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.aboutMe__about {
+    margin: 26px 0 0 0;
+    height: 88px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.aboutMe__contact {
+    margin: 99px 0 0 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-decoration: none;
+    color: #000;
+}
+
+.aboutMe__photo {
+    width: 270px;
+    max-height: 327px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.aboutMe__portfolio {
+    margin: 101px 0 0 0;
+}
+
+.aboutMe__portfolio-subtitle {
+    margin: 0 0 30px 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    color: #A0A0A0;
+}
+
+.aboutMe__links-list {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+.aboutMe__link {
+    border-bottom: 1px solid #E8E8E8;
+}
+
+.aboutMe__link:last-child {
+    border-bottom: none;
+}
+
+.aboutMe__link-element {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    text-decoration: none;
+    color: #000;
+}
+
+.abooteMe__link-title {
+    margin: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 50px;
+    letter-spacing: -0.04em;
+}
+
+.aboutMe__link-icon {
+    margin: 0 4px 0 0;
+}
