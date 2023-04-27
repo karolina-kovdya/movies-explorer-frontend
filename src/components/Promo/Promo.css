@@ -41,15 +41,19 @@
     margin: 146px 0 0 0;
     width: 129px;
     height: 36px;
+    background-color: #073042;
+    border: 1px solid #fff;
+    border-radius: 3px;
+}
+
+.promo__link {
+    text-decoration: none;
+    color: #fff;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 13px;
     line-height: 16px;
-    color: #fff;
-    background-color: #073042;
-    border: 1px solid #fff;
-    border-radius: 3px;
 }
 
 .promo__img {

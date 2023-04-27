@@ -3,7 +3,7 @@ import SectionsHeader from '../SectionsHeader/SectionsHeader';
 
 function AboutProject () {
     return (
-        <section className='aboutProject'>
+        <section className='aboutProject' id='aboutProject'>
           <SectionsHeader title='О проекте' />
           <ul className='aboutProject__info'>
             <li className='aboutProject__info-list'>
