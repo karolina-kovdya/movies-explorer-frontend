@@ -4,6 +4,7 @@ import './App.css';
 import Header from '../Haeder/Header';
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
+import Register from '../Register/Register';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Header />
         <Main />
         <Footer />
+        <Register />
       </div>
     </BrowserRouter>
   );

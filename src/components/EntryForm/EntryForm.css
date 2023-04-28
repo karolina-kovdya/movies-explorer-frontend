@@ -1,0 +1,85 @@
+.entryForm {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.entryForm__header {
+    width: 396px;
+    margin: 70px 0 0 0;
+    padding: 0;
+}
+
+.entryForm__logo {
+    width: 38px;
+    height: 38px;
+    object-fit: cover;
+}
+
+.entryForm__title {
+    margin: 40px 0 0 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.entryForm__form {
+    width: 396px;
+    height: 266px;
+    margin: 40px 0 0 0;
+}
+
+.entryForm__form-set {
+    width: 396px;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.entryForm__button-submit {
+    margin: 69px 0 0 0;
+    padding: 0;
+    width: 396px;
+    height: 45px;
+    background-color: #3456F3;
+    border: none;
+    border-radius: 3px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.entryForm__link-container {
+    margin: 16px 0 70px 0;
+    display: flex;
+}
+
+.entryForm__text {
+    margin: 0 6px 0 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #A0A0A0;
+}
+
+.entryForm__link {
+    margin: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #3456F3;
+    text-decoration: none;
+}
