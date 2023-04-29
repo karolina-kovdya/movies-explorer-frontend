@@ -2,9 +2,9 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Main from '../Main/Main';
-import Footer from '../Footer/Footer';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
+import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <div className="app">
         <Routes>
           <Route
-            path='/'
+            path="/"
             element={<Main />}
           />
           <Route 
@@ -23,8 +23,12 @@ function App() {
             path="/signup"
             element={<Register />}
           />
+
+          <Route
+            path="*"
+            element={<NotFoundPage />}
+          />
         </Routes>
-        <Footer />
       </div>
     </BrowserRouter>
   );
