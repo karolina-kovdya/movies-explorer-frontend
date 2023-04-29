@@ -33,6 +33,7 @@
     line-height: 16px;
     margin: 0 30px 0 0;
     color: #FFF;
+    text-decoration: none;
 }
 
 .header__button {
@@ -41,9 +42,15 @@
     background-color: #2BE080;
     border: none;
     border-radius: 3px;
+}
+
+.header__button-link {
+    margin: 0;
+    text-decoration: none;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 16px;
+    color: #000;
 }

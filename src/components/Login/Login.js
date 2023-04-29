@@ -8,7 +8,7 @@ function Login() {
       title="Рады видеть!"
       buttonText="Войти"
       text="Ещё не зарегистрированы?"
-      url='/signup'
+      link='/signup'
       linkText="Регистрация"
     >
       <>

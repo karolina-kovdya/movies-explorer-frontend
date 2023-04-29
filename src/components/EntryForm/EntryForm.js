@@ -8,7 +8,7 @@ function EntryForm (props) {
       <div>
         <section className='entryForm'>
           <div className="entryForm__header">
-            <img className="entryForm__logo" src={logo} alt="логотип" />
+            <Link to='/'><img className="entryForm__logo" src={logo} alt="логотип" /></Link>
             <h2 className="entryForm__title">{props.title}</h2>
             <form className="entryForm__form" noValidate>
               <fieldset className="entryForm__form-set">
