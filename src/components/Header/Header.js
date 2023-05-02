@@ -1,5 +1,7 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./Header.css";
+import NavigationMain from "../Navigation/NavigationMain";
+import Navigation from "../Navigation/Navigation";
 
 function Header() {
   return (
@@ -8,22 +10,26 @@ function Header() {
         path="/"
         element={
           <>
-            <header className="header header_main">
+            <header className="header header_notLogin">
               <div className="header__logo" alt="логотип"></div>
-              <div className="header__auth">
-                <Link to="/signup" className="header__link">
-                  Регистрация
-                </Link>
-                <button type="button" className="header__button">
-                  <Link to="/signin" className="header__button-link">
-                    Войти
-                  </Link>
-                </button>
-              </div>
+              <NavigationMain />
             </header>
           </>
         }
       ></Route>
+      {["/movies", "/saved-movies", "/profile"].map((path) => (
+        <Route
+          path={path}
+          element={
+            <>
+              <header className="header header_login">
+                <div className="header__logo" alt="логотип"></div>
+                <Navigation />
+              </header>
+            </>
+          }
+        />
+      ))}
     </Routes>
   );
 }
