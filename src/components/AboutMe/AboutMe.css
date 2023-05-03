@@ -45,6 +45,7 @@
 }
 
 .aboutMe__contact {
+    cursor: pointer;
     margin: 99px 0 0 0;
     font-family: 'Inter';
     font-style: normal;
@@ -53,6 +54,12 @@
     line-height: 17px;
     text-decoration: none;
     color: #000;
+    opacity: 1;
+    transition: opacity .3 ease;
+}
+
+.aboutMe__contact:hover {
+    opacity: .6;
 }
 
 .aboutMe__photo {
@@ -85,6 +92,12 @@
 
 .aboutMe__link {
     border-bottom: 1px solid #E8E8E8;
+    opacity: 1;
+    transition: opacity .3 ease;
+}
+
+.aboutMe__link:hover {
+    opacity: .6;
 }
 
 .aboutMe__link:last-child {

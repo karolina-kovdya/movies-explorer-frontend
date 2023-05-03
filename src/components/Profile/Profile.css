@@ -66,6 +66,12 @@
     font-size: 13px;
     line-height: 16px;
     cursor: pointer;
+    opacity: 1;
+    transition: opacity .3 ease;
+}
+
+.profile__change:hover {
+    opacity: .6;
 }
 
 .profile__link {
@@ -77,4 +83,10 @@
     line-height: 16px;
     text-align: center;
     color: #FF3055;
+    opacity: 1;
+    transition: opacity .3 ease;
+}
+
+.profile__link:hover {
+    opacity: .6;
 }

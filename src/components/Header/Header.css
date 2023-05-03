@@ -25,3 +25,7 @@
     background-image: url('../../images/headerLogo.svg');
     object-fit: cover;
 }
+
+.header__logo-link:hover {
+    opacity: .6;
+}

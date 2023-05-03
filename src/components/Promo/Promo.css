@@ -38,12 +38,19 @@
 }
 
 .promo_btn {
+    cursor: pointer;
     margin: 146px 0 0 0;
     width: 129px;
     height: 36px;
     background-color: #073042;
     border: 1px solid #fff;
     border-radius: 3px;
+    opacity: 1;
+    transition: opacity .3 ease;
+}
+
+.promo_btn:hover {
+    opacity: .6;
 }
 
 .promo__link {

@@ -41,6 +41,7 @@
     width: 100px;
     height: 32px;
     background-image: url(../../images/profile.svg);
+    border-radius: 20px;
 }
 
 .navTab__profile-link:hover {

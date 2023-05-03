@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import "./Header.css";
 import NavigationMain from "../Navigation/NavigationMain";
 import Navigation from "../Navigation/Navigation";
@@ -24,7 +24,7 @@ function Header() {
           element={
             <>
               <header className="header header_login">
-                <div className="header__logo" alt="логотип"></div>
+                <Link to='/' className="header__logo-link"><div className="header__logo" alt="логотип"></div></Link>
                 <Navigation />
               </header>
             </>

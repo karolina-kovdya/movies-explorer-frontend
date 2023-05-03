@@ -15,6 +15,12 @@
     width: 38px;
     height: 38px;
     object-fit: cover;
+    opacity: 1;
+    transition: opacity .3 ease;
+}
+
+.entryForm__logo:hover {
+    opacity: .6;
 }
 
 .entryForm__title {
@@ -39,7 +45,7 @@
     padding: 0;
 }
 
-.entryForm__button-submit {
+.entryForm__button {
     margin: 69px 0 0 0;
     padding: 0;
     width: 396px;
@@ -54,6 +60,13 @@
     line-height: 17px;
     text-align: center;
     color: #FFFFFF;
+    opacity: 1;
+    transition: opacity .3 ease;
+    cursor: pointer;
+}
+
+.entryForm__button:hover {
+    opacity: .6;
 }
 
 .entryForm__link-container {
@@ -82,4 +95,10 @@
     text-align: center;
     color: #3456F3;
     text-decoration: none;
+    opacity: 1;
+    transition: opacity .3 ease;
+}
+
+.entryForm__link:hover {
+    opacity: .6;
 }
