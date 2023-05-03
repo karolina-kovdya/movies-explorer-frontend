@@ -13,7 +13,7 @@ function Register() {
     >
       <>
         <label className="register__field">
-          <h3 className="register-placeholder">Имя</h3>
+          <p className="register__placeholder">Имя</p>
           <input
           className="register__input"
             type="text"
@@ -22,7 +22,7 @@ function Register() {
           />
         </label>
         <label className="register__field">
-          <h3 className="register-placeholder">E-mail</h3>
+          <p className="register__placeholder">E-mail</p>
           <input
           className="register__input"
             type="text"
@@ -31,7 +31,7 @@ function Register() {
           />
         </label>
         <label className="register__field">
-          <h3 className="register-placeholder">Пароль</h3>
+          <p className="register__placeholder">Пароль</p>
           <input
           className="register__input"
             type="text"

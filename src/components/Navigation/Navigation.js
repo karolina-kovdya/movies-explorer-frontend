@@ -12,7 +12,7 @@ function Navigation() {
           <Link to="/" className="navTab__link">Сохранённые фильмы</Link>
         </li>
       </ul>
-      <Link to='/' className="navTab__profile-link"></Link>
+      <Link to='/profile' className="navTab__profile-link"></Link>
     </div>
   );
 }

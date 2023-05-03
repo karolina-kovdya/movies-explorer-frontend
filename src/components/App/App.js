@@ -6,6 +6,7 @@ import Register from '../Register/Register';
 import Login from '../Login/Login';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import Movies from '../Movies/Movies';
+import Profile from '../Profile/Profile';
 
 function App() {
   return (
@@ -23,10 +24,16 @@ function App() {
             element={<Movies />}
           />
 
+          <Route
+            path='/profile'
+            element={<Profile />}
+          />
+
           <Route 
             path="/signin" 
             element={<Login />} 
           />
+          
           <Route
             path="/signup"
             element={<Register />}

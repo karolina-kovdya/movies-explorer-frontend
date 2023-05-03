@@ -17,8 +17,9 @@ function Header() {
           </>
         }
       ></Route>
-      {["/movies", "/saved-movies", "/profile"].map((path) => (
+      {["/movies", "/saved-movies", "/profile"].map((path, key) => (
         <Route
+          key={key}
           path={path}
           element={
             <>

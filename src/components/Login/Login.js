@@ -13,7 +13,7 @@ function Login() {
     >
       <>
         <label className="login__field">
-          <h3 className="login-placeholder">E-mail</h3>
+          <p className="login__placeholder">E-mail</p>
           <input
           className="login__input"
             type="text"
@@ -22,7 +22,7 @@ function Login() {
           />
         </label>
         <label className="login__field">
-          <h3 className="login-placeholder">Пароль</h3>
+          <p className="login__placeholder">Пароль</p>
           <input
           className="login__input"
             type="text"
