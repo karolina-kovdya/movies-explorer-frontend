@@ -1,0 +1,15 @@
+.savedMovies__cards {
+    max-width: 100%;
+    margin: 80px 70px 237px 70px;
+}
+
+.savedMovies__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(364px, max-content));
+    grid-template-rows: auto;
+    grid-column-gap: 24px;
+    grid-row-gap: 37px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}

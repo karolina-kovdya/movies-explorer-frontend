@@ -7,6 +7,8 @@ import Login from '../Login/Login';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import Movies from '../Movies/Movies';
 import Profile from '../Profile/Profile';
+import Footer from '../Footer/Footer';
+import SavedMovies from '../SavedMovies/SavedMovies';
 
 function App() {
   return (
@@ -20,12 +22,17 @@ function App() {
           />
 
           <Route
-            path='/movies'
+            path="/movies"
             element={<Movies />}
           />
 
           <Route
-            path='/profile'
+            path="/saved-movies"
+            element={<SavedMovies />}
+          />
+
+          <Route
+            path="/profile"
             element={<Profile />}
           />
 
@@ -44,6 +51,7 @@ function App() {
             element={<NotFoundPage />}
           />
         </Routes>
+        <Footer />
       </div>
     </BrowserRouter>
   );

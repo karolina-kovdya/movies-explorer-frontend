@@ -6,10 +6,10 @@ function Navigation() {
     <div className="navTab">
       <ul className="navTab__list">
         <li className="navTab__links">
-          <Link to="/" className="navTab__link">Фильмы</Link>
+          <Link to="/movies" className="navTab__link">Фильмы</Link>
         </li>
         <li className="navTab__links">
-          <Link to="/" className="navTab__link">Сохранённые фильмы</Link>
+          <Link to="/saved-movies" className="navTab__link">Сохранённые фильмы</Link>
         </li>
       </ul>
       <Link to='/profile' className="navTab__profile-link"></Link>

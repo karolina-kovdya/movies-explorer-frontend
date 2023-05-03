@@ -1,8 +1,12 @@
 import SearchForm from "../SearchForm/SearchForm"
+import MoviesCardList from "../MoviesCardList/MoviesCardList";
 
 function Movies () {
     return (
-        <SearchForm />
+        <div className="movies">
+            <SearchForm />
+            <MoviesCardList />
+        </div>
     )
 }
 
