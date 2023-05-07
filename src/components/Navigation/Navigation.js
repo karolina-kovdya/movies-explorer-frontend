@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import "./Navigation.css";
 
-function Navigation() {
+function Navigation({onBurgerMenu}) {
+  function handleClick () {
+    onBurgerMenu()
+  }
+
   return (
     <div className="navTab">
       <ul className="navTab__list">
@@ -13,6 +17,7 @@ function Navigation() {
         </li>
       </ul>
       <Link to='/profile' className="navTab__profile-link"></Link>
+      <button className="navTab__burger-btn" onClick={handleClick} />
     </div>
   );
 }

@@ -90,3 +90,17 @@
 .profile__link:hover {
     opacity: .6;
 }
+
+@media screen and (max-width: 870px) {
+    .profile__title {
+        margin: 160px 0 96px 6px;
+    }
+
+    .profile__link-container {
+        margin-top: 174px;
+    }
+
+    .profile__link {
+        margin-bottom: 269px;
+    }
+}

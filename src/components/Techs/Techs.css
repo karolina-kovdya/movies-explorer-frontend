@@ -59,3 +59,37 @@
 .techs__icon:last-child {
     margin-right: 0;
 }
+
+@media screen and (max-width: 870px) {
+    .techs {
+        margin: 0;
+        padding: 90px 50px
+    }
+    .techs__subtitle {
+        margin-top: 80px;
+    }
+    .techs__text {
+        margin-top: 22px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .techs__icon-list {
+        margin-top: 83px;
+    }
+
+    .techs__icon {
+        width: 84px;
+        font-size: 12px;
+        line-height: 15px;
+    }
+}
+
+@media screen and (max-width: 670px) {
+    .techs__icon-list {
+        display: grid;
+        grid-template-columns: repeat(2, 84px);
+        grid-gap: 10px;
+    }
+    
+}

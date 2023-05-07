@@ -85,3 +85,17 @@
     align-items: center;
     color: #A0A0A0;
 }
+
+@media screen and (max-width: 870px) {
+    .moviesCard__image {
+        height: 190px;
+    }
+    
+    .moviesCard__elements {
+        margin: 14px;
+    }
+
+    .moviesCard__duration {
+        margin: 0 0 14px 14px;
+    }
+}

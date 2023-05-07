@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
 import './App.css';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
@@ -9,12 +10,29 @@ import Movies from '../Movies/Movies';
 import Profile from '../Profile/Profile';
 import Footer from '../Footer/Footer';
 import SavedMovies from '../SavedMovies/SavedMovies';
+import BurgerMenu from '../BurgerMenu/BurgerMenu';
 
 function App() {
+  const [isBurgerOpen, setisBurgerOpen] = useState(false);
+
+  function handleBurgerOpen () {
+    setisBurgerOpen(!isBurgerOpen)
+  }
+
+  function closeBurgerMenu () {
+    setisBurgerOpen(false)
+  }
+
   return (
     <BrowserRouter>
       <div className="app">
-      <Header />
+      <BurgerMenu 
+         isOpen={isBurgerOpen}
+         onClose={closeBurgerMenu}
+      />
+      <Header 
+          onBurgerMenu={handleBurgerOpen}
+      />
         <Routes>
           <Route
             path="/"

@@ -3,7 +3,7 @@ import "./Header.css";
 import NavigationMain from "../Navigation/NavigationMain";
 import Navigation from "../Navigation/Navigation";
 
-function Header() {
+function Header({onBurgerMenu}) {
   return (
     <Routes>
       <Route
@@ -25,7 +25,7 @@ function Header() {
             <>
               <header className="header header_login">
                 <Link to='/' className="header__logo-link"><div className="header__logo" alt="логотип"></div></Link>
-                <Navigation />
+                <Navigation onBurgerMenu={onBurgerMenu}/>
               </header>
             </>
           }

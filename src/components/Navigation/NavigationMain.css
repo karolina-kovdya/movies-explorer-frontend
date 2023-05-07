@@ -47,3 +47,9 @@
     line-height: 16px;
     color: #000;
 }
+
+@media screen and (max-width: 970px) {
+    .navMain {
+        margin-right: 30px;
+    }
+}

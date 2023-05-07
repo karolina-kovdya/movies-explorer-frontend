@@ -13,3 +13,15 @@
     padding: 0;
     list-style: none;
 }
+
+@media screen and (max-width: 870px) {
+    .savedMovies__cards {
+        margin: 80px 30px 237px 30px;
+    }
+
+    .savedMovies__list {
+        grid-template-columns: repeat(auto-fit, minmax(339px, max-content));
+        grid-column-gap: 30px;
+        grid-row-gap: 29px;
+    }
+}
