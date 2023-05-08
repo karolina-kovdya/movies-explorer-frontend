@@ -12,7 +12,7 @@ function Login() {
       linkText="Регистрация"
     >
       <>
-        <label className="login__field">
+        <label className="login">
           <p className="login__placeholder">E-mail</p>
           <input
           className="login__input"
@@ -21,7 +21,7 @@ function Login() {
             required
           />
         </label>
-        <label className="login__field">
+        <label className="login">
           <p className="login__placeholder">Пароль</p>
           <input
           className="login__input"

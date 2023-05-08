@@ -12,7 +12,7 @@ function Register() {
       linkText="Войти"
     >
       <>
-        <label className="register__field">
+        <label className="register">
           <p className="register__placeholder">Имя</p>
           <input
           className="register__input"
@@ -21,7 +21,7 @@ function Register() {
             required
           />
         </label>
-        <label className="register__field">
+        <label className="register">
           <p className="register__placeholder">E-mail</p>
           <input
           className="register__input"
@@ -30,7 +30,7 @@ function Register() {
             required
           />
         </label>
-        <label className="register__field">
+        <label className="register">
           <p className="register__placeholder">Пароль</p>
           <input
           className="register__input"

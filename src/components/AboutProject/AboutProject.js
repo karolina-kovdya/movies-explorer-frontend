@@ -16,10 +16,10 @@ function AboutProject () {
             </li>
           </ul>
           <div className='aboutProject__schedule'>
-            <p className='aboutProject__schedule_theme aboutProject__schedule_theme_green'>1 неделя</p>
-            <p className='aboutProject__schedule_theme aboutProject__schedule_theme_grey'>4 недели</p>
-            <p className='aboutProject__schedule_theme aboutProject__schedule_theme_white'>Back-end</p>
-            <p className='aboutProject__schedule_theme aboutProject__schedule_theme_white'>Front-end</p>
+            <p className='aboutProject__schedule-theme aboutProject__schedule-theme_green'>1 неделя</p>
+            <p className='aboutProject__schedule-theme aboutProject__schedule-theme_grey'>4 недели</p>
+            <p className='aboutProject__schedule-theme aboutProject__schedule-theme_white'>Back-end</p>
+            <p className='aboutProject__schedule-theme aboutProject__schedule-theme_white'>Front-end</p>
           </div>
         </section>
     )

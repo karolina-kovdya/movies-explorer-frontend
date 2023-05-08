@@ -41,7 +41,7 @@
     grid-template-rows: 2fr;
 }
 
-.aboutProject__schedule_theme {
+.aboutProject__schedule-theme {
     margin: 0;
     font-size: 14px;
     line-height: 17px;
@@ -49,17 +49,17 @@
     padding: 9px;
 }
 
-.aboutProject__schedule_theme_green {
+.aboutProject__schedule-theme_green {
     background-color: #2BE080;
     font-weight: 400;
 }
 
-.aboutProject__schedule_theme_grey {
+.aboutProject__schedule-theme_grey {
     background-color: #F2F2F2;
     font-weight: 400;
 }
 
-.aboutProject__schedule_theme_white {
+.aboutProject__schedule-theme_white {
     margin-top: 5px;
     color: #A0A0A0;
     font-weight: 500;
@@ -123,12 +123,12 @@
         grid-template-columns: 1fr 1.85fr;
     }
 
-    .aboutProject__schedule_theme {
+    .aboutProject__schedule-theme {
         font-size: 11px;
         line-height: 16px;
     }
 
-    .aboutProject__schedule_theme_white {
+    .aboutProject__schedule-theme_white {
         margin: 0;
     }
 }

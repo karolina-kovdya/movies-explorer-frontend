@@ -3,13 +3,13 @@
     margin: 110px 70px 105px 70px;
 }
 
-.aboutMe__profile {
+.aboutMe-profile {
     display: flex;
     justify-content: space-between;
     margin: 66px 0 0 0;
 }
 
-.abouteMe__profile-info {
+.aboutMe-profile__info {
     max-width: 600px;
     display: flex;
     flex-direction: column;
@@ -112,7 +112,7 @@
     color: #000;
 }
 
-.abooteMe__link-title {
+.aboutMe__link-title {
     margin: 0;
     font-family: 'Inter';
     font-style: normal;
@@ -132,7 +132,7 @@
 }
 
 @media screen and (max-width: 1140px) {
-    .abouteMe__profile-info {
+    .aboutMe-profile__info {
         margin-right: 49px;
     }
 }
@@ -142,7 +142,7 @@
         margin: 90px 50px 46px 50px;
     }
 
-    .abouteMe__profile-info {
+    .aboutMe-profile__info {
         max-width: 364px;
     }
 
@@ -184,7 +184,7 @@
         margin-bottom: 20px;
     }
 
-    .abooteMe__link-title {
+    .aboutMe__link-title {
         font-size: 28px;
     }
 
@@ -199,16 +199,16 @@
         margin: 0;
     }
 
-    .abouteMe__profile {
+    .abouteMe-profile {
         margin-top: 60px;
     }
 
-    .aboutMe__profile {
+    .aboutMe-profile {
         flex-direction: column-reverse;
         align-items: center;
     }
 
-    .abouteMe__profile-info {
+    .aboutMe-profile__info {
         width: 292px;
         margin: 40px 0 0 0;
     }
@@ -256,7 +256,7 @@
         margin-top: 40px;
     }
 
-    .abooteMe__link-title {
+    .aboutMe__link-title {
         font-size: 18px;
         line-height: 28px;
     }

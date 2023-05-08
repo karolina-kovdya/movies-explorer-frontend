@@ -9,7 +9,7 @@ function MoviesCard({ url, nameRu, duration, component }) {
   }
 
   return (
-    <li className="movieCard">
+    <li className="moviesCard">
       <div className="moviesCard__container">
         <img src={url} alt="Заставка фильма" className="moviesCard__image" />
         <div className="moviesCard__elements">
