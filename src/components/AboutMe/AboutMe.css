@@ -123,7 +123,12 @@
 }
 
 .aboutMe__link-icon {
-    margin-right: 4px;
+    background-image: url(../../images/portfolioIcon.svg);
+    width: 27px;
+    height: 27px;
+    background-repeat: no-repeat;
+    align-self: center;
+    margin-top: 10px;
 }
 
 @media screen and (max-width: 1140px) {
@@ -185,5 +190,81 @@
 
     .aboutMe__link-element {
         margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .aboutMe {
+        padding: 70px 14px 0 14px;
+        margin: 0;
+    }
+
+    .abouteMe__profile {
+        margin-top: 60px;
+    }
+
+    .aboutMe__profile {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .abouteMe__profile-info {
+        width: 292px;
+        margin: 40px 0 0 0;
+    }
+
+    .aboutMe__photo {
+        width: 292px;
+        height: 352px;
+    }
+
+    .aboutMe__name {
+        font-size: 30px;
+        line-height: 36px;
+    }
+
+    .aboutMe__job {
+        margin-top: 20px;
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .aboutMe__about {
+        margin-top: 20px;
+        font-size: 11px;
+        line-height: 16px;
+        height: 112px;
+    }
+
+    .aboutMe__contact {
+        margin-top: 40px;
+        font-size: 14px;
+        line-height: 17px;
+    }
+
+    .aboutMe__portfolio {
+        margin-top: 70px;
+    }
+
+    .aboutMe__portfolio-subtitle {
+        font-size: 14px;
+        line-height: 20px;
+        margin: 0;
+    }
+
+    .aboutMe__links-list {
+        margin-top: 40px;
+    }
+
+    .abooteMe__link-title {
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .aboutMe__link-icon {
+       width: 18px;
+       height: 18px;
+       background-image: url(../../images/icon320.svg);
+       margin: 0;
     }
 }

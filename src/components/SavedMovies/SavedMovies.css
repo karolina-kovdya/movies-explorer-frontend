@@ -25,3 +25,14 @@
         grid-row-gap: 29px;
     }
 }
+
+@media screen and (max-width: 540px) {
+    .savedMovies__cards {
+        margin: 50px 10px 153px 10px;
+    }
+
+    .savedMovies__list {
+        grid-template-columns: repeat(auto-fit, minmax(300px, max-content));
+        gap: 14px;
+    }
+}

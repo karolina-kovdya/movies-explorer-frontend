@@ -8,16 +8,16 @@ function BurgerMenu(props) {
         <button className="burgerMenu__btn" type="button" onClick={props.onClose}></button>
           <ul className="burgerMenu__list">
             <li className="burgerMenu__links">
-              <Link to="/" className="burgerMenu__link">Главная</Link>
+              <Link to="/" className="burgerMenu__link" onClick={props.onClose}>Главная</Link>
             </li>
             <li className="burgerMenu__links">
-              <Link to="/movies" className="burgerMenu__link">Фильмы</Link>
+              <Link to="/movies" className="burgerMenu__link" onClick={props.onClose}>Фильмы</Link>
             </li>
             <li className="burgerMenu__links">
-              <Link to="/saved-movies" className="burgerMenu__link">Сохранённые фильмы</Link>
+              <Link to="/saved-movies" className="burgerMenu__link" onClick={props.onClose}>Сохранённые фильмы</Link>
             </li>
           </ul>
-          <Link to='/profile' className="burgerMenu__profile-link"></Link>
+          <Link to='/profile' className="burgerMenu__profile-link" onClick={props.onClose}></Link>
         </div>
     </section>
   );

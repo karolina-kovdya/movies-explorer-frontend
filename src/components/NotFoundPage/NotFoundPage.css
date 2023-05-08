@@ -52,3 +52,26 @@
         padding-top: 200px;
     }
 }
+
+@media screen and (max-width: 540px) {
+    .notFound {
+        padding-top: 157px;
+    }
+
+    .notFound__error {
+        font-size: 80px;
+        line-height: 97px;
+    }
+
+    .notFound__text {
+        margin-top: 10px;
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .notFound__button {
+        margin: 284px 0 30px 0;
+        font-size: 12px;
+        line-height: 15px;
+    }
+}

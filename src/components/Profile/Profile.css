@@ -32,7 +32,7 @@
 }
 
 .profile__input {
-    width: 410px;
+    width: 100%;
     height: 16px;
     border: none;
     margin: 0 0 17px 0;
@@ -102,5 +102,36 @@
 
     .profile__link {
         margin-bottom: 269px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .profile {
+        margin: 70px 30px 0 30px;
+    }
+
+    .profile__title {
+        margin: 0 0 80px 12px;
+        font-size: 24px;
+        line-height: 29px;
+    }
+
+    .profile__field {
+        width: 260px;
+    }
+
+    .profile__link-container {
+        margin-top: 343px;
+    }
+
+    .profile__change {
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .profile__link {
+        font-size: 12px;
+        line-height: 15px;
+        margin-bottom: 40px;
     }
 }

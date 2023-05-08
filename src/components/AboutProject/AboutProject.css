@@ -91,3 +91,44 @@
         margin-left: 2px;
     }
 }
+
+@media screen and (max-width: 540px) {
+    .aboutProject {
+        margin: 70px 18px;
+    }
+
+    .aboutProject__info {
+        margin-top: 60px;
+        flex-direction: column;
+    }
+
+    .aboutProject__info-list {
+        margin-bottom: 56px;
+    }
+
+    .aboutProject__info-subtitle {
+        font-size: 18px;
+        line-height: 22px;
+        margin-bottom: 16px;
+    }
+
+    .aboutProject__text {
+        margin-top: 16px;
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .aboutProject__schedule {
+        margin: 4px 0 70px 0;
+        grid-template-columns: 1fr 1.85fr;
+    }
+
+    .aboutProject__schedule_theme {
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .aboutProject__schedule_theme_white {
+        margin: 0;
+    }
+}

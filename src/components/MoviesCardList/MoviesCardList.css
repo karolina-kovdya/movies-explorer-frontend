@@ -36,7 +36,7 @@
     opacity: .6;
 }
 
-@media screen and (max-width: 870px) {
+@media screen and (max-width: 891px) {
     .moviesCards {
         margin: 80px 30px 0 30px;
     }
@@ -49,5 +49,20 @@
 
     .moviesCards__button {
         margin-top: 80px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .moviesCards {
+        margin: 50px 10px 0 10px;
+    }
+
+    .moviesCards__list {
+        grid-template-columns: repeat(auto-fit, minmax(300px, max-content));
+        gap: 14px;
+    }
+
+    .moviesCards__button {
+        margin: 77px 0 68px 0;
     }
 }

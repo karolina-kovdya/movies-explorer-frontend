@@ -14,3 +14,13 @@
     line-height: 27px;
     letter-spacing: -0.04em;
 }
+
+@media screen and (max-width: 540px) {
+    .sectionsHeader__title {
+        margin-bottom: 28px;
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+
+}

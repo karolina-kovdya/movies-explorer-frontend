@@ -1,7 +1,6 @@
 import './AboutMe.css'
 import SectionsHeader from '../SectionsHeader/SectionsHeader';
 import userPhoto from '../../images/userPhoto.jpg'
-import icon from '../../images/portfolioIcon.svg'
 import { Link } from 'react-router-dom';
 
 function AboutMe () {
@@ -23,19 +22,19 @@ function AboutMe () {
               <li className='aboutMe__link'>
                 <Link className='aboutMe__link-element' to={'https://github.com/karolina-kovdya/how-to-learn'} target='_blank'>
                   <p className='abooteMe__link-title'>Статичный сайт</p>
-                  <img className='aboutMe__link-icon' src={icon} alt='Изображение стрелка-ссылка'/>
+                  <div className='aboutMe__link-icon'/>
                 </Link>
               </li>
               <li className='aboutMe__link'>
                 <Link className='aboutMe__link-element' to={'https://github.com/karolina-kovdya/russian-travel'} target='_blank'>
                   <p className='abooteMe__link-title'>Адаптивный сайт</p>
-                  <img className='aboutMe__link-icon' src={icon} alt='Изображение стрелка-ссылка'/>
+                  <div className='aboutMe__link-icon'/>
                 </Link>
               </li>
               <li className='aboutMe__link'>
                 <Link className='aboutMe__link-element' to={'https://github.com/karolina-kovdya/react-mesto-api-full-gha'} target='_blank'>
                   <p className='abooteMe__link-title'>Одностраничное приложение</p>
-                  <img className='aboutMe__link-icon' src={icon} alt='Изображение стрелка-ссылка'/>
+                  <div className='aboutMe__link-icon'/>
                 </Link>
               </li>
             </ul>

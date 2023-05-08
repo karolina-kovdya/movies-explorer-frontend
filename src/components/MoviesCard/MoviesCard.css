@@ -99,3 +99,27 @@
         margin: 0 0 14px 14px;
     }
 }
+
+@media screen and (max-width: 540px) {
+    .moviesCard__image {
+        height: 168px;
+    }
+
+    .moviesCard__title {
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .moviesCard__duration {
+        font-size: 10px;
+        line-height: 12px;
+    }
+
+    .moviesCard__save {
+        margin: 0 3px 0 0;
+    }
+
+    .moviesCard__save_active {
+        margin: 0 3px 0 0;
+    }
+}

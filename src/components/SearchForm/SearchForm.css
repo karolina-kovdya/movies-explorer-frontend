@@ -60,3 +60,26 @@
         margin: 70px 30px 0 30px;
     }
 }
+
+@media screen and (max-width: 870px) {
+    .searchForm {
+        margin: 70px 14px 0 14px;
+    }
+
+    .searchForm__input {
+        height: 56px;
+        font-size: 16px;
+        line-height: 16px;
+    }
+
+    .searchForm__input::placeholder {
+        padding-left: 12px;
+    }
+
+    .searchForm__button {
+        width: 80px;
+        height: 44px;
+        top: 6px;
+        right: 6px;
+    }
+}

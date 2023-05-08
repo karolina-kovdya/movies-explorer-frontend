@@ -64,22 +64,32 @@
     .navTab {
         margin-left: 126px;
     }
-}
 
-@media screen and (max-width: 870px) {
     .navTab__links {
         display: none;
     }
-}
 
-@media screen and (max-width: 870px) {
     .navTab__profile-link {
         display: none;
     }
-}
 
-@media screen and (max-width: 870px) {
     .navTab__burger-btn {
         display: block;
     }
 }
+
+@media screen and (max-width: 540px) {
+        .navTab {
+            width: calc(100% - 63px);
+            margin: 0 14px 0 0;
+            padding: 0;
+        }
+
+        .navTab__burger-btn {
+            background-image: url(../../images/burger320.svg);
+            width: 40px;
+            height: 43px;
+            padding: 0 0 4px 2px;
+        }
+}
+

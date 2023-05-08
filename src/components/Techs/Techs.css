@@ -93,3 +93,35 @@
     }
     
 }
+
+@media screen and (max-width: 540px) {
+    .techs {
+        padding: 60px 18px;
+        background-color: #fff;
+    }
+
+    .techs__subtitle {
+        margin: 0;
+        padding-right: 3px;
+        font-size: 30px;
+        line-height: 36px;
+    }
+   
+    .techs__info {
+        margin-top: 60px;
+    }
+    
+    .techs__text {
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .techs__icon-list {
+        margin-top: 50px;
+    }
+
+    .techs__icon {
+        font-size: 12px;
+        line-height: 15px;
+    }
+}
