@@ -1,0 +1,156 @@
+.entryForm {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.entryForm__header {
+    width: 396px;
+    margin: 70px 0 0 0;
+    padding: 0;
+}
+
+.entryForm__logo {
+    width: 38px;
+    height: 38px;
+    object-fit: cover;
+    opacity: 1;
+    transition: opacity .3 ease;
+}
+
+.entryForm__logo:hover {
+    opacity: .6;
+}
+
+.entryForm__title {
+    margin: 40px 0 0 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.entryForm__form {
+    width: 396px;
+    height: 266px;
+    margin: 40px 0 0 0;
+}
+
+.entryForm__form-set {
+    width: 100%;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.entryForm__button {
+    margin: 69px 0 0 0;
+    padding: 0;
+    width: 396px;
+    height: 45px;
+    background-color: #3456F3;
+    border: none;
+    border-radius: 3px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #FFFFFF;
+    opacity: 1;
+    transition: opacity .3 ease;
+    cursor: pointer;
+}
+
+.entryForm__button:hover {
+    opacity: .6;
+}
+
+.entryForm__link-container {
+    margin: 16px 0 70px 0;
+    display: flex;
+}
+
+.entryForm__text {
+    margin: 0 6px 0 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #A0A0A0;
+}
+
+.entryForm__link {
+    margin: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #3456F3;
+    text-decoration: none;
+    opacity: 1;
+    transition: opacity .3 ease;
+}
+
+.entryForm__link:hover {
+    opacity: .6;
+}
+
+@media screen and (max-width: 870px) {
+    .entryForm__header {
+        margin-top: 232px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .entryForm {
+        margin: 56px 30px 0 30px;
+    }
+
+    .entryForm__header {
+        margin: 0;
+        width: 260px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .entryForm__title {
+        margin-top: 46px;
+    }
+
+    .entryForm__form {
+        width: 260px;
+        margin-top: 80px;
+    }
+
+    .entryForm__button {
+        width: 260px;
+        height: 45px;
+        font-size: 12px;
+        line-height: 15px;
+        margin-top: 157px;
+    }
+
+    .entryForm__link-container {
+        margin: 14px 0 30px 0;
+    }
+
+    .entryForm__text {
+        font-size: 12px;
+        line-height: 15px;
+        margin-right: 7px;
+    }
+
+    .entryForm__link {
+        font-size: 12px;
+        line-height: 15px;
+    }
+}

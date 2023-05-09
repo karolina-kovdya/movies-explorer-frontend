@@ -1,0 +1,134 @@
+.aboutProject {
+    max-width: 1140px;
+    margin: 110px 70px;
+}
+
+.aboutProject__info {
+    margin: 70px 0 0 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.aboutProject__info-list {
+    max-width: 550px;
+}
+
+.aboutProject__info-subtitle {
+    margin: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.04em;
+}
+
+.aboutProject__text {
+    margin: 26px 0 0 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.aboutProject__schedule {
+    margin: 110px 0 0 0;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 2fr;
+}
+
+.aboutProject__schedule-theme {
+    margin: 0;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    padding: 9px;
+}
+
+.aboutProject__schedule-theme_green {
+    background-color: #2BE080;
+    font-weight: 400;
+}
+
+.aboutProject__schedule-theme_grey {
+    background-color: #F2F2F2;
+    font-weight: 400;
+}
+
+.aboutProject__schedule-theme_white {
+    margin-top: 5px;
+    color: #A0A0A0;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 1140px) {
+    .aboutProject__info-list {
+        margin-right: 33px;
+    }
+
+    .aboutProject__info-list:last-child {
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width: 870px) {
+    .aboutProject {
+        margin: 90px 50px;
+    }
+    
+    .aboutProject__text {
+        margin-top: 22px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .aboutProject__schedule {
+        margin-top: 93px;
+        margin-left: 2px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .aboutProject {
+        margin: 70px 18px;
+    }
+
+    .aboutProject__info {
+        margin-top: 60px;
+        flex-direction: column;
+    }
+
+    .aboutProject__info-list {
+        margin-bottom: 56px;
+    }
+
+    .aboutProject__info-subtitle {
+        font-size: 18px;
+        line-height: 22px;
+        margin-bottom: 16px;
+    }
+
+    .aboutProject__text {
+        margin-top: 16px;
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .aboutProject__schedule {
+        margin: 4px 0 70px 0;
+        grid-template-columns: 1fr 1.85fr;
+    }
+
+    .aboutProject__schedule-theme {
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .aboutProject__schedule-theme_white {
+        margin: 0;
+    }
+}

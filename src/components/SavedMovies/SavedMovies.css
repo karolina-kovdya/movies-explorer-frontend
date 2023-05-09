@@ -1,0 +1,39 @@
+.savedMovies__cards {
+    max-width: 100%;
+    margin: 80px 70px 237px 70px;
+}
+
+.savedMovies__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(364px, max-content));
+    grid-template-rows: auto;
+    grid-column-gap: 24px;
+    grid-row-gap: 37px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    justify-content: center;
+}
+
+@media screen and (max-width: 870px) {
+    .savedMovies__cards {
+        margin: 80px 30px 237px 30px;
+    }
+
+    .savedMovies__list {
+        grid-template-columns: repeat(auto-fit, minmax(339px, max-content));
+        grid-column-gap: 30px;
+        grid-row-gap: 29px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .savedMovies__cards {
+        margin: 50px 10px 153px 10px;
+    }
+
+    .savedMovies__list {
+        grid-template-columns: repeat(auto-fit, minmax(300px, max-content));
+        gap: 14px;
+    }
+}

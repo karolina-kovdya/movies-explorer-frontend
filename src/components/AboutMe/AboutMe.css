@@ -1,0 +1,270 @@
+.aboutMe {
+    max-width: 1140px;
+    margin: 110px 70px 105px 70px;
+}
+
+.aboutMe-profile {
+    display: flex;
+    justify-content: space-between;
+    margin: 66px 0 0 0;
+}
+
+.aboutMe-profile__info {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+.aboutMe__name {
+    margin: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
+    letter-spacing: -0.04em;
+}
+
+.aboutMe__job {
+    margin: 18px 0 0 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.aboutMe__about {
+    margin: 26px 0 0 0;
+    height: 88px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.aboutMe__contact {
+    cursor: pointer;
+    margin: 99px 0 0 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-decoration: none;
+    color: #000;
+    opacity: 1;
+    transition: opacity .3 ease;
+}
+
+.aboutMe__contact:hover {
+    opacity: .6;
+}
+
+.aboutMe__photo {
+    width: 270px;
+    max-height: 327px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.aboutMe__portfolio {
+    margin: 101px 0 0 0;
+}
+
+.aboutMe__portfolio-subtitle {
+    margin: 0 0 30px 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    color: #A0A0A0;
+}
+
+.aboutMe__links-list {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+.aboutMe__link {
+    border-bottom: 1px solid #E8E8E8;
+    opacity: 1;
+    transition: opacity .3 ease;
+}
+
+.aboutMe__link:hover {
+    opacity: .6;
+}
+
+.aboutMe__link:last-child {
+    border-bottom: none;
+}
+
+.aboutMe__link-element {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    text-decoration: none;
+    color: #000;
+}
+
+.aboutMe__link-title {
+    margin: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 50px;
+    letter-spacing: -0.04em;
+}
+
+.aboutMe__link-icon {
+    background-image: url(../../images/portfolioIcon.svg);
+    width: 27px;
+    height: 27px;
+    background-repeat: no-repeat;
+    align-self: center;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 1140px) {
+    .aboutMe-profile__info {
+        margin-right: 49px;
+    }
+}
+
+@media screen and (max-width: 870px) {
+    .aboutMe {
+        margin: 90px 50px 46px 50px;
+    }
+
+    .aboutMe-profile__info {
+        max-width: 364px;
+    }
+
+    .aboutMe__name {
+        font-size: 40px;
+        line-height: 40px;
+    }
+
+    .aboutMe__job {
+        margin-top: 16px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .aboutMe__about {
+        margin-top: 20px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .aboutMe__contact {
+        margin-top: 109px;
+    }
+
+    .aboutMe__photo {
+        width: 255px;
+        max-height: 307px;
+    }
+    
+    .aboutMe__portfolio {
+        margin-top: 90px;
+    }
+
+    .aboutMe__portfolio-subtitle {
+        margin-bottom: 50px;
+    }
+
+    .aboutMe__link {
+        margin-bottom: 20px;
+    }
+
+    .aboutMe__link-title {
+        font-size: 28px;
+    }
+
+    .aboutMe__link-element {
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .aboutMe {
+        padding: 70px 14px 0 14px;
+        margin: 0;
+    }
+
+    .abouteMe-profile {
+        margin-top: 60px;
+    }
+
+    .aboutMe-profile {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .aboutMe-profile__info {
+        width: 292px;
+        margin: 40px 0 0 0;
+    }
+
+    .aboutMe__photo {
+        width: 292px;
+        height: 352px;
+    }
+
+    .aboutMe__name {
+        font-size: 30px;
+        line-height: 36px;
+    }
+
+    .aboutMe__job {
+        margin-top: 20px;
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .aboutMe__about {
+        margin-top: 20px;
+        font-size: 11px;
+        line-height: 16px;
+        height: 112px;
+    }
+
+    .aboutMe__contact {
+        margin-top: 40px;
+        font-size: 14px;
+        line-height: 17px;
+    }
+
+    .aboutMe__portfolio {
+        margin-top: 70px;
+    }
+
+    .aboutMe__portfolio-subtitle {
+        font-size: 14px;
+        line-height: 20px;
+        margin: 0;
+    }
+
+    .aboutMe__links-list {
+        margin-top: 40px;
+    }
+
+    .aboutMe__link-title {
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .aboutMe__link-icon {
+       width: 18px;
+       height: 18px;
+       background-image: url(../../images/icon320.svg);
+       margin: 0;
+    }
+}

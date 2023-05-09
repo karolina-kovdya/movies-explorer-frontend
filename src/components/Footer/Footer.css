@@ -1,0 +1,116 @@
+.footer {
+    max-width: 1140px;
+    margin: 0 70px;
+}
+
+.footer__conteiner {
+    margin: 0;
+    padding: 79px 0 0 0;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #E8E8E8;
+}
+
+.footer__text {
+    margin: 0 0 20px 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+    color: #A0A0A0;
+}
+
+.footer__info {
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__copyright {
+    margin: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.footer__link-list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+}
+
+.footer__link {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    margin-right: 20px;
+    opacity: 1;
+    transition: opacity .3 ease;
+    cursor: pointer;
+}
+
+.footer__link:hover {
+   opacity: .6;
+}
+
+.footer__link:last-child {
+    margin-right: 0;
+}
+
+.footer__link-element {
+    text-decoration: none;
+    color: #000;
+}
+
+@media screen and (max-width: 870px) {
+    .footer {
+        margin: 0 30px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .footer {
+        margin: 0 10px;
+        padding-top: 13px;
+    }
+
+    .footer__text {
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .footer__info {
+        flex-direction: column-reverse;
+        align-items: center;
+        margin-top: 30px;
+    }
+
+    .footer__link-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer__link {
+        margin-bottom: 12px;
+        font-size: 12px;
+        line-height: 15px; 
+    }
+
+    .footer__link:first-child {
+        padding-left: 15px;
+    }
+
+    .footer__copyright {
+        margin: 19px 0 20px 0;
+        font-size: 12px;
+        line-height: 15px;
+        color: #A0A0A0;
+    }
+}
