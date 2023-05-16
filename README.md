@@ -8,5 +8,4 @@
 
 ## ССылка на дизайн макет в фигме
 
-https://disk.yandex.ru/d/Tpt5jxkmH6QnOg
-
+https://disk.yandex.ru/d/Tpt5jxkmH6Qgit 

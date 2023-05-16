@@ -10,7 +10,7 @@ function Footer() {
           path={path}
           element={
             <>
-              <section className="footer">
+              <footer className="footer">
                 <div className="footer__conteiner">
                   <p className="footer__text">Учебный проект Яндекс.Практикум х BeatFilm.</p>
                 </div>
@@ -25,7 +25,7 @@ function Footer() {
                     </li>
                   </ul>
                 </div>
-              </section>
+              </footer>
             </>
           }
         />

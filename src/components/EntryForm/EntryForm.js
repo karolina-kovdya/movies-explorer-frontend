@@ -15,7 +15,7 @@ function EntryForm (props) {
                 {props.children}
               </fieldset>
             </form>
-            <button type="submit" className="entryForm__button">{props.buttonText}</button>
+            <button type="submit" className="entryForm__button" disabled={props.disabled}>{props.buttonText}</button>
           </div>
           <div className="entryForm__link-container">
             <p className="entryForm__text">{props.text}</p>

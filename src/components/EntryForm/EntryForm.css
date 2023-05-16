@@ -65,6 +65,18 @@
     cursor: pointer;
 }
 
+.entryForm__button:disabled {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+    opacity: .2;
+    cursor: default;
+}
+
+.entryForm__button:disabled:hover {
+    opacity: .2;
+}
+
 .entryForm__button:hover {
     opacity: .6;
 }
