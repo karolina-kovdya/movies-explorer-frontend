@@ -2,12 +2,22 @@ import "./Register.css";
 import EntryForm from "../EntryForm/EntryForm";
 import { useValidation } from "../../hooks/UseValidation";
 
-function Register() {
+function Register({onSignUp, resMessage, isRegistred}) {
   const { values, handleChange, errors, isValid} = useValidation({
     name: '',
     email: '',
     password: ''
   });
+
+  function handleRegister(e) {
+    e.preventDefault();
+      
+      onSignUp({
+        name: values.name,
+        email: values.email,
+        password: values.password,
+      })
+  }
 
   return (
     <EntryForm
@@ -18,6 +28,10 @@ function Register() {
       link="/signin"
       linkText="Войти"
       disabled={!isValid}
+      handleSubmit={handleRegister}
+      isRegistred={isRegistred}
+      resMessage={resMessage}
+      
     >
       <>
         <label className="register">
@@ -26,9 +40,11 @@ function Register() {
             className="register__input" 
             type="text" 
             name="name" 
+            pattern="[a-zA-Zа-яА-Я-\s]*"
+            placeholder="поле содержит только латиницу, кириллицу, пробел или дефис"
             value={values.name || ''}
             onChange={(evt) => handleChange(evt)}
-            minLength='3'
+            minLength='2'
             maxLength='30'
             required
           />
@@ -41,6 +57,7 @@ function Register() {
             type="text"
             name="email"
             pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'
+            placeholder="поле содержит адрес электронной почты"
             value={values.email || ''}
             onChange={(evt) => handleChange(evt)}
             required
@@ -53,9 +70,10 @@ function Register() {
             className="register__input"
             type="text"
             name="password"
-            value={values.password}
+            placeholder="поле содержит от 5 до 30 символов"
+            value={values.password || ''}
             onChange={(evt) => handleChange(evt)}
-            minLength='5'
+            minLength='2'
             maxLength='30'
             required
           />

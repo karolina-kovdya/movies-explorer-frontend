@@ -39,6 +39,12 @@
     line-height: 17px;
 }
 
+.register__input::placeholder {
+    font-size: 10px;
+    line-height: 12px;
+    opacity: .6;
+}
+
 .register__error {
     display: none;
     margin-top: 2px;

@@ -18,24 +18,38 @@
 .profile__field {
     width: 410px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;                                                                   
+    line-height: 13px;
 }
 
-.profile__placeholder {
-    padding: 0;
-    margin: 0 2px 0 0;
+.profile__field_border {
+	border-bottom: 1px solid #E8E8E8;
+}
+
+.profile__input {
+    padding: 17px 0 16px 0;
+    background-color: #fff;
+    border: none;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 11px;
     line-height: 13px;
+    text-align: right;
+    color: #000;
 }
 
-.profile__input {
-    width: 100%;
-    height: 16px;
-    border: none;
-    margin: 0 0 17px 0;
+.profile__input::placeholder {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
 }
 
 .profile__input:hover {
@@ -44,10 +58,6 @@
 
 .profile__input:focus {
     border-bottom: 1px solid #3456F3;
-}
-
-.profile__input_border {
-    border-bottom: 1px solid #E8E8E8;
 }
 
 .profile__link-container {
@@ -89,6 +99,58 @@
 
 .profile__link:hover {
     opacity: .6;
+}
+.profile__submit-container {
+    margin: 188px 0 0 0;
+    height: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile__button {
+    padding: 0;
+    margin: 4px 0 0 0;
+    width: 396px;
+    height: 45px;
+    background-color: #3456F3;
+    border: none;
+    border-radius: 3px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #FFFFFF;
+    opacity: 1;
+    transition: opacity .3 ease;
+    cursor: pointer;
+}
+
+.profile__button:disabled {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+    opacity: .2;
+    cursor: default;
+}
+
+.profile__error {
+    display: none;
+    margin-top: 2px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #ff3055;
+    text-align: center;
+}
+
+.profile__error_active {
+    display: block;
 }
 
 @media screen and (max-width: 870px) {
@@ -133,5 +195,12 @@
         font-size: 12px;
         line-height: 15px;
         margin-bottom: 40px;
+    }
+
+    .profile__button {
+        width: 260px;
+        height: 45px;
+        font-size: 12px;
+        line-height: 15px;
     }
 }

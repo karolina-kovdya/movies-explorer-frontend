@@ -2,11 +2,20 @@ import "./Login.css";
 import EntryForm from "../EntryForm/EntryForm";
 import { useValidation } from "../../hooks/UseValidation";
 
-function Login() {
+function Login({onSignIn, resMessage, isRegistred}) {
   const { values, handleChange, errors, isValid} = useValidation({
     email: '',
     password: ''
   });
+
+  function handleLogin(e) {
+    e.preventDefault();
+      
+      onSignIn({
+        email: values.email,
+        password: values.password,
+      })
+  }
 
   return (
     <EntryForm
@@ -17,6 +26,9 @@ function Login() {
       link='/signup'
       linkText="Регистрация"
       disabled={!isValid}
+      handleSubmit={handleLogin}
+      resMessage={resMessage}
+      isRegistred={isRegistred}
     >
       <>
         <label className="login">
@@ -38,9 +50,9 @@ function Login() {
           className="login__input"
             type="text"
             name="password"
-            value={values.password}
+            value={values.password || ''}
             onChange={(evt) => handleChange(evt)}
-            minLength='5'
+            minLength='2'
             maxLength='30'
             required
           />
