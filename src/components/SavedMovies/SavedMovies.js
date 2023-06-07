@@ -1,20 +1,19 @@
 import "./SavedMovies.css";
-import { savedMovies } from "../../utils/contants";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCard from "../MoviesCard/MoviesCard";
 
-function SavedMovies() {
+function SavedMovies({movies, onSearchSavedMovies}) {
   return (
     <div className="savedMovies">
-      <SearchForm />
+      <SearchForm onSearch={onSearchSavedMovies}/>
       <section className="savedMovies__cards">
         <ul className="savedMovies__list">
-          {savedMovies.map((movie) => {
+          {movies.map((movie) => {
             return (
               <MoviesCard
                 key={movie._id}
-                url={movie.url}
-                nameRu={movie.nameRu}
+                url={movie.image}
+                nameRu={movie.nameRU}
                 duration={movie.duration}
                 component="savedMovies"
               />

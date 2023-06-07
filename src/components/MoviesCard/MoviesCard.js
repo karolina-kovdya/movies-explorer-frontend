@@ -1,11 +1,12 @@
 import { useState } from "react";
 import "./MoviesCard.css";
 
-function MoviesCard({ url, nameRu, duration, component }) {
+function MoviesCard({ url, nameRu, duration, component, onSave, movie}) {
   const [isSaved, setIsSaved] = useState(false);
 
   function handleMovieSave() {
     setIsSaved(!isSaved);
+    onSave(movie);
   }
 
   return (

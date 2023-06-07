@@ -59,23 +59,25 @@ export const editProfile = (name, email) => {
   }).then(getRes);
 }
 
-export const createMovie = (movie) => {
+export const saveMovie = (movie) => {
+  const jwt = localStorage.getItem("jwt")
   return fetch(`${BASE_URL}/movies`, {
     method: "POST",
     headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${jwt}`,
     },
     body: JSON.stringify({
-      country: movie.country || "",
-      director: movie.director || "",
-      duration: movie.duration || 0,
-      year: movie.year || 0,
-      description: movie.description || "",
+      country: movie.country,
+      director: movie.director,
+      duration: movie.duration,
+      year: movie.year,
+      description: movie.description,
       image: `https://api.nomoreparties.co/${movie.image.url}`,
-      trailer: movie.trailerLink,
+      trailerLink: movie.trailerLink,
       nameRU: movie.nameRU,
-      nameEN: movie.nameEN || "",
+      nameEN: movie.nameEN,
       thumbnail: `https://api.nomoreparties.co/${movie.image.formats.thumbnail.url}`,
       movieId: movie.id,
     }),
@@ -83,11 +85,13 @@ export const createMovie = (movie) => {
 };
 
 export const getMovies = () => {
+  const jwt = localStorage.getItem("jwt")
   return fetch(`${BASE_URL}/movies`, {
     method: "GET",
     headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${jwt}`,
     },
   }).then(getRes);
 };

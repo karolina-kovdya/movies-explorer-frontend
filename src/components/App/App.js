@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import { Routes, Route, Navigate, useNavigate, json } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import "./App.css";
@@ -14,33 +14,51 @@ import SavedMovies from "../SavedMovies/SavedMovies";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import { currentUserContext } from "../../context/CurrentUserContext";
 import * as mainApi from "../../utils/MainApi";
+import * as movieApi from "../../utils/MovieApi";
+import { SHORT_MOVIE } from "../../utils/contants";
 
 function App() {
+  const navigate = useNavigate();
+
   const [currentUser, setCurrentUser] = useState({});
+
   const [isBurgerOpen, setisBurgerOpen] = useState(false);
+
   const [isRegistred, setIsRegistred] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
   const [resMessage, setResMessage] = useState("");
 
-  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
+  const [notFound, setNotFound] = useState(false);
+  const [disabled, setDisabled] = useState(false);
+  const [checked, setChecked] = useState(
+    JSON.parse(localStorage.getItem("checkbox")) || false
+  );
+
+  const [localMovies, setLocalMovies] = useState(
+    JSON.parse(localStorage.getItem("allMovies")) || []
+  );
+  const [searchedMovies, setSearchedMovie] = useState([]);
+  const [savedMovie, setSavedMovie] = useState([]);
 
   useEffect(() => {
-    checkJwt()
-  },[]);
+    checkJwt();
+  }, []);
 
   useEffect(() => {
-    const jwt = localStorage.getItem("jwt");
-    if(jwt) {
-      Promise.all([mainApi.getUserInfo()])
-      .then(([userInfo]) => {
-        setCurrentUser(userInfo);
-        console.log(userInfo)
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (loggedIn) {
+      Promise.all([mainApi.getUserInfo(), mainApi.getMovies()])
+        .then(([userInfo, movies]) => {
+          setCurrentUser(userInfo);
+          const savedMovies = movies.filter((movie) => movie.owner === userInfo._id);
+          localStorage.setItem("savedMovies", JSON.stringify(savedMovies));
+          setSavedMovie(savedMovies);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
-  },[loggedIn])
+  }, [loggedIn]);
 
   function checkJwt() {
     const jwt = localStorage.getItem("jwt");
@@ -49,7 +67,7 @@ function App() {
         .getContent(jwt)
         .then(() => {
           setLoggedIn(true);
-          navigate('/movies')
+          navigate("/movies");
         })
         .catch((err) => {
           if (err === "Ошибка: 400") {
@@ -57,7 +75,7 @@ function App() {
           } else if (err === "Ошибка: 401") {
             console.log("401 Переданный токен некорректен");
           } else {
-            setResMessage('500 На сервере произошла ошибка.')
+            setResMessage("500 На сервере произошла ошибка.");
           }
         });
     }
@@ -80,7 +98,7 @@ function App() {
             `При регистрации пользователя произошла ошибка. ${err}`
           );
         } else {
-          setResMessage('500 На сервере произошла ошибка.')
+          setResMessage("500 На сервере произошла ошибка.");
         }
       });
   }
@@ -109,21 +127,20 @@ function App() {
             `При авторизации пользователя произошла ошибка. ${err}`
           );
         } else {
-          setResMessage('500 На сервере произошла ошибка.')
+          setResMessage("500 На сервере произошла ошибка.");
         }
       });
   }
 
-  function handleUpdateUser({name, email}) {
+  function handleUpdateUser({ name, email }) {
     return mainApi
       .editProfile(name, email)
       .then((res) => {
-        console.log(res)
-        setCurrentUser(res);
         setResMessage("Профиль обновлен");
+        setCurrentUser(res);
       })
       .catch((err) => {
-        setIsRegistred(false)
+        setIsRegistred(false);
         console.log(err);
         if (err === "Ошибка: 409") {
           setResMessage("Пользователь с таким email уже существует.");
@@ -132,14 +149,14 @@ function App() {
         } else if (err === "Ошибка: 400") {
           setResMessage(`При обновлении профиля произошла ошибка. ${err}`);
         } else {
-          setResMessage('500 На сервере произошла ошибка.')
+          setResMessage("500 На сервере произошла ошибка.");
         }
       });
   }
 
   function handleSignOut() {
     setLoggedIn(false);
-    localStorage.removeItem("jwt");
+    localStorage.clear();
     navigate("/");
   }
 
@@ -149,6 +166,77 @@ function App() {
 
   function closeBurgerMenu() {
     setisBurgerOpen(false);
+  }
+
+  function handleShortClick() {
+    setChecked(!checked);
+  }
+
+  function handleSearchFilter(movies, text) {
+    return movies.filter((movie) => {
+      return movie.nameRU.toLowerCase().includes(text.trim().toLowerCase());
+    });
+  }
+
+  function handleShortFilter(movies, state) {
+    return !state
+      ? movies
+      : movies.filter((movie) => movie.duration <= SHORT_MOVIE);
+  }
+
+  function searchAllMovies(param) {
+    localStorage.setItem("movieParam", JSON.stringify(param));
+    localStorage.setItem("checkBox", checked);
+    setIsLoading(true);
+    setDisabled(true);
+    setNotFound(false);
+    if (localMovies.length === 0) {
+      movieApi
+        .getMovies()
+        .then((res) => {
+          localStorage.setItem("allMovies", JSON.stringify(res));
+          setLocalMovies(res);
+          setIsLoading(false);
+          setDisabled(false);
+          const foundMovie = handleSearchFilter(res, param);
+          const foundShortMovie = handleShortFilter(foundMovie, checked);
+          if (foundMovie.length === 0 || foundShortMovie.length === 0) {
+            setNotFound(true);
+          } else {
+            setNotFound(false);
+            setSearchedMovie(foundMovie);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      setSearchedMovie([]);
+      setTimeout(() => {
+        setIsLoading(false);
+        setDisabled(false);
+        const foundMovie = handleSearchFilter(localMovies, param);
+        const foundShortMovie = handleShortFilter(foundMovie, checked);
+        if (foundMovie.length === 0 || foundShortMovie.length === 0) {
+          setNotFound(true);
+        } else {
+          setNotFound(false);
+          setSearchedMovie(foundMovie);
+        }
+      }, 1000);
+    }
+  }
+
+  function handleSaveMovie (movie) {
+    console.log(movie)
+    mainApi
+      .saveMovie(movie) 
+      .then((savedMovie) => {
+        setSavedMovie(prevState => [ ...prevState, savedMovie ]);
+      })
+      .catch((err) => {
+        console.log(err.name);
+      });
   }
 
   return (
@@ -163,7 +251,18 @@ function App() {
             path="/movies"
             element={
               <>
-                <ProtectedRoute component={Movies} loggedIn={loggedIn} />
+                <ProtectedRoute
+                  component={Movies}
+                  loggedIn={loggedIn}
+                  isLoading={isLoading}
+                  movies={searchedMovies}
+                  onSearchMovies={searchAllMovies}
+                  notFound={notFound}
+                  disabled={disabled}
+                  checked={checked}
+                  onCheck={handleShortClick}
+                  onSave={handleSaveMovie}
+                />
               </>
             }
           />
@@ -172,7 +271,11 @@ function App() {
             path="/saved-movies"
             element={
               <>
-                <ProtectedRoute component={SavedMovies} loggedIn={loggedIn} />
+                <ProtectedRoute
+                  component={SavedMovies}
+                  loggedIn={loggedIn}
+                  movies={savedMovie}
+                />
               </>
             }
           />
