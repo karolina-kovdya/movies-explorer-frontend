@@ -9,6 +9,7 @@ function CheckboxButton ({isChecked, onChangeCheck}) {
     return (
         <div className='checkbox'>
           <label className='checkbox__container'>
+
             <input 
             type='checkbox' 
             className='checkbox__input' 

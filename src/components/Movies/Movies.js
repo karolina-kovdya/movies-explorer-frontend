@@ -11,8 +11,9 @@ function Movies(props) {
       {props.notFound ? (
         <div className="movies__notFound">Ничего не найдено</div>
       ) : (
-        <MoviesCardList movies={props.movies} moreMovies={props.moreMovies} onSave={props.onSave}/>
+        <MoviesCardList movies={props.movies} moreMovies={props.moreMovies} onSave={props.onSave} onDelete={props.onDelete} savedMovie={props.savedMovie} disabled={props.disabled}/>
       )}
+      {props.serverError && <div className="movies__error">Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз</div> }
     </div>
   );
 }

@@ -37,6 +37,10 @@
     font-weight: 500;
 }
 
+.navTab__link_active {
+    font-weight: 500;
+}
+
 .navTab__profile-link {
     width: 100px;
     height: 32px;

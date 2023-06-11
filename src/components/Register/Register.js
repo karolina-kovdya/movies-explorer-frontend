@@ -56,7 +56,7 @@ function Register({onSignUp, resMessage, isRegistred}) {
             className="register__input"
             type="text"
             name="email"
-            pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'
+            pattern='[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,4}$'
             placeholder="поле содержит адрес электронной почты"
             value={values.email || ''}
             onChange={(evt) => handleChange(evt)}

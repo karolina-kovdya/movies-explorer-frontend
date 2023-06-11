@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate, useNavigate, json } from "react-router-dom";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import "./App.css";
@@ -27,12 +27,16 @@ function App() {
   const [isRegistred, setIsRegistred] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
   const [resMessage, setResMessage] = useState("");
+  const [serverError, setServerError] = useState(false)
 
   const [isLoading, setIsLoading] = useState(false);
   const [notFound, setNotFound] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [checked, setChecked] = useState(
     JSON.parse(localStorage.getItem("checkbox")) || false
+  );
+  const [chekedSave, setCheckedSave] = useState(
+    JSON.parse(localStorage.getItem("checkboxSave")) || false
   );
 
   const [localMovies, setLocalMovies] = useState(
@@ -50,9 +54,7 @@ function App() {
       Promise.all([mainApi.getUserInfo(), mainApi.getMovies()])
         .then(([userInfo, movies]) => {
           setCurrentUser(userInfo);
-          const savedMovies = movies.filter((movie) => movie.owner === userInfo._id);
-          localStorage.setItem("savedMovies", JSON.stringify(savedMovies));
-          setSavedMovie(savedMovies);
+          setSavedMovie(movies);
         })
         .catch((err) => {
           console.log(err);
@@ -82,6 +84,7 @@ function App() {
   }
 
   function handleRegister({ name, email, password }) {
+    setResMessage('')
     return mainApi
       .register(name, email, password)
       .then(() => {
@@ -104,6 +107,7 @@ function App() {
   }
 
   function handleLogin({ email, password }) {
+    setResMessage('')
     return mainApi
       .authorize(email, password)
       .then((data) => {
@@ -157,6 +161,7 @@ function App() {
   function handleSignOut() {
     setLoggedIn(false);
     localStorage.clear();
+    setSearchedMovie([])
     navigate("/");
   }
 
@@ -170,6 +175,10 @@ function App() {
 
   function handleShortClick() {
     setChecked(!checked);
+  }
+
+  function handleSaveShortClick() {
+    setCheckedSave(!chekedSave);
   }
 
   function handleSearchFilter(movies, text) {
@@ -190,6 +199,7 @@ function App() {
     setIsLoading(true);
     setDisabled(true);
     setNotFound(false);
+    setServerError(false);
     if (localMovies.length === 0) {
       movieApi
         .getMovies()
@@ -209,6 +219,7 @@ function App() {
         })
         .catch((err) => {
           console.log(err);
+          setServerError(true)
         });
     } else {
       setSearchedMovie([]);
@@ -221,21 +232,73 @@ function App() {
           setNotFound(true);
         } else {
           setNotFound(false);
-          setSearchedMovie(foundMovie);
+          if(!checked) {
+            setSearchedMovie(foundMovie);
+          } else {
+            setSearchedMovie(foundShortMovie)
+          }
         }
       }, 1000);
     }
   }
 
-  function handleSaveMovie (movie) {
-    console.log(movie)
+  function searchSaveMovie (param) {
+    localStorage.setItem("checkBoxSave", chekedSave);
+    setIsLoading(true);
+    setDisabled(true);
+    setNotFound(false);
+    const foundSavedMovie = handleSearchFilter(savedMovie, param);
+    const foundSavedShortMovie = handleShortFilter(foundSavedMovie, chekedSave)
+    if(foundSavedMovie.length === 0 || foundSavedShortMovie.length === 0) {
+      setIsLoading(false);
+      setDisabled(false)
+      setNotFound(true);
+    } else {
+      setNotFound(false);
+      setIsLoading(false);
+      setDisabled(false)
+      if(!chekedSave) {
+        setSavedMovie(foundSavedMovie)
+      } else {
+        setSavedMovie(foundSavedShortMovie)
+      }
+    }
+  }
+
+  function handleSaveMovie(movie) {
     mainApi
-      .saveMovie(movie) 
+      .saveMovie(movie)
       .then((savedMovie) => {
-        setSavedMovie(prevState => [ ...prevState, savedMovie ]);
+        setSavedMovie((prev) => [...prev, savedMovie]);
       })
       .catch((err) => {
-        console.log(err.name);
+        console.log(err);
+      });
+  }
+
+  function handleDeleteMovie(movie) {
+    const deletedMovie = savedMovie.find((i) => i.movieId === movie.id);
+    mainApi
+      .deleteMovie(deletedMovie._id)
+      .then(() => {
+        setSavedMovie((selectedMovie) =>
+        selectedMovie.filter((i) => i._id !== deletedMovie._id))
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  function handleSaveDelete (movie) {
+    const deletedMovie = savedMovie.find((i) => i._id === movie._id);
+    mainApi
+      .deleteMovie(deletedMovie._id)
+      .then(() => {
+        setSavedMovie((selectedMovie) =>
+        selectedMovie.filter((i) => i._id !== deletedMovie._id))
+      })
+      .catch((err) => {
+        console.log(err);
       });
   }
 
@@ -256,12 +319,15 @@ function App() {
                   loggedIn={loggedIn}
                   isLoading={isLoading}
                   movies={searchedMovies}
+                  savedMovie={savedMovie}
                   onSearchMovies={searchAllMovies}
                   notFound={notFound}
                   disabled={disabled}
                   checked={checked}
                   onCheck={handleShortClick}
                   onSave={handleSaveMovie}
+                  onDelete={handleDeleteMovie}
+                  serverError={serverError}
                 />
               </>
             }
@@ -275,6 +341,13 @@ function App() {
                   component={SavedMovies}
                   loggedIn={loggedIn}
                   movies={savedMovie}
+                  onDelete={handleSaveDelete}
+                  isLoading={isLoading}
+                  disabled={disabled}
+                  notFound={notFound}
+                  onSearchMovies={searchSaveMovie}
+                  checked={chekedSave}
+                  onCheck={handleSaveShortClick}
                 />
               </>
             }

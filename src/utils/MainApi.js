@@ -97,11 +97,13 @@ export const getMovies = () => {
 };
 
 export const deleteMovie = (id) => {
+  const jwt = localStorage.getItem("jwt")
     return fetch(`${BASE_URL}/movies/${id}`, {
       method: "DELETE",
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${jwt}`,
     },
     }).then(getRes);
 }

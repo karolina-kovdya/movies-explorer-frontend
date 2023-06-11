@@ -37,7 +37,7 @@ function Login({onSignIn, resMessage, isRegistred}) {
             className="login__input"
             type="text"
             name="email"
-            pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'
+            pattern='[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,4}$'
             value={values.email || ''}
             onChange={(evt) => handleChange(evt)}
             required
