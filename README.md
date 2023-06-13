@@ -1,6 +1,8 @@
 # Дипломная работа
 
-Фронтенд проекта movies-explorer
+## Ссылка на сайт
+
+https://karolina.movie.nomore.nomoredomains.monster
 
 ## Scripts
 
