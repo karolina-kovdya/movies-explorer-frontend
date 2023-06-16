@@ -1,5 +1,5 @@
 .navMain {
-    margin: auto 70px auto 0;
+    margin: auto 0 auto 0;
     padding: 0;
     display: flex;
     align-items: baseline;
@@ -48,17 +48,7 @@
     color: #000;
 }
 
-@media screen and (max-width: 970px) {
-    .navMain {
-        margin-right: 30px;
-    }
-}
-
 @media screen and (max-width: 540px) {
-    .navMain {
-        margin-right: 14px;
-    }
-
     .navMain__link {
         font-size: 10px;
         margin-right: 14px;

@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import "./Navigation.css";
 
-function Navigation({ onBurgerMenu }) {
+function Navigation({ onBurgerMenu, loggedIn }) {
   const path = useLocation().pathname;
 
   function handleClick() {
@@ -17,7 +17,7 @@ function Navigation({ onBurgerMenu }) {
               Фильмы
             </Link>
           ) : (
-            <Link to="/movies" className="navTab__link">
+            <Link to="/movies" className={path === "/" ? "navTab__link navTab__link_dark" : "navTab__link"}>
               Фильмы
             </Link>
           )}
@@ -28,14 +28,14 @@ function Navigation({ onBurgerMenu }) {
               Сохранённые фильмы
             </Link>
           ) : (
-            <Link to="/saved-movies" className="navTab__link">
+            <Link to="/saved-movies" className={path === "/" ? "navTab__link navTab__link_dark" : "navTab__link"}>
               Сохранённые фильмы
             </Link>
           )}
         </li>
       </ul>
-      <Link to="/profile" className="navTab__profile-link"></Link>
-      <button className="navTab__burger-btn" onClick={handleClick} />
+      <Link to="/profile" className={path === "/" ? "navTab__profile-link navTab__profile-link_dark" : "navTab__profile-link navTab__profile-link_white"}></Link>
+      <button className={!loggedIn ? "navTab__burger-btn navTab__burger-btn_white" : "navTab__burger-btn navTab__burger-btn_dark"} onClick={handleClick} />
     </div>
   );
 }

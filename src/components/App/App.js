@@ -306,7 +306,10 @@ function App() {
     <currentUserContext.Provider value={currentUser}>
       <div className="app">
         <BurgerMenu isOpen={isBurgerOpen} onClose={closeBurgerMenu} />
-        <Header onBurgerMenu={handleBurgerOpen} />
+        <Header 
+          loggedIn={loggedIn}
+          onBurgerMenu={handleBurgerOpen} 
+        />
         <Routes>
           <Route path="/" element={<Main />} />
 

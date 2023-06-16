@@ -3,7 +3,7 @@ import "./Header.css";
 import NavigationMain from "../Navigation/NavigationMain";
 import Navigation from "../Navigation/Navigation";
 
-function Header({onBurgerMenu}) {
+function Header({loggedIn, onBurgerMenu}) {
   return (
     <Routes>
       <Route
@@ -12,7 +12,10 @@ function Header({onBurgerMenu}) {
           <>
             <header className="header header_notLogin">
               <div className="header__logo" alt="логотип"></div>
-              <NavigationMain />
+              {!loggedIn ? 
+              <NavigationMain /> :
+              <Navigation onBurgerMenu={onBurgerMenu} loggedIn={loggedIn}/>
+              }
             </header>
           </>
         }
