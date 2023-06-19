@@ -12,7 +12,7 @@ export const register = (name, email, password) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ name: name, email: email, password: password }),
-  }).then(getRes);
+  }).then(getRes)
 };
 
 export const authorize = (email, password) => {

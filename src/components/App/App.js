@@ -50,7 +50,8 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (loggedIn) {
+    const jwt = localStorage.getItem("jwt");
+    if (jwt) {
       Promise.all([mainApi.getUserInfo(), mainApi.getMovies()])
         .then(([userInfo, movies]) => {
           setCurrentUser(userInfo);
@@ -67,7 +68,8 @@ function App() {
     if (jwt) {
       mainApi
         .getContent(jwt)
-        .then(() => {
+        .then((res) => {
+          setCurrentUser(res);
           setLoggedIn(true);
           navigate("/movies");
         })
@@ -87,22 +89,13 @@ function App() {
     setResMessage('')
     return mainApi
       .register(name, email, password)
-      .then(() => {
+      .then((res) => {
+        handleLogin({ email, password });
+        setCurrentUser(res);
         setIsRegistred(true);
-        setLoggedIn(true);
-        navigate("/movies");
       })
       .catch((err) => {
         console.log(err);
-        if (err === "Ошибка: 409") {
-          setResMessage("Пользователь с таким email уже существует.");
-        } else if (err === "Ошибка: 401") {
-          setResMessage(
-            `При регистрации пользователя произошла ошибка. ${err}`
-          );
-        } else {
-          setResMessage("500 На сервере произошла ошибка.");
-        }
       });
   }
 
@@ -161,6 +154,7 @@ function App() {
   function handleSignOut() {
     setLoggedIn(false);
     localStorage.clear();
+    setResMessage('')
     setSearchedMovie([])
     navigate("/");
   }
