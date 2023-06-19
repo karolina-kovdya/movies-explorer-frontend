@@ -48,7 +48,7 @@ function Login({onSignIn, resMessage, isRegistred}) {
           <p className="login__placeholder">Пароль</p>
           <input
           className="login__input"
-            type="text"
+            type="password"
             name="password"
             value={values.password || ''}
             onChange={(evt) => handleChange(evt)}

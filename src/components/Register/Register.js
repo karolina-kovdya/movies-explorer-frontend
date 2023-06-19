@@ -68,7 +68,7 @@ function Register({onSignUp, resMessage, isRegistred}) {
           <p className="register__placeholder">Пароль</p>
           <input
             className="register__input"
-            type="text"
+            type="password"
             name="password"
             placeholder="поле содержит от 5 до 30 символов"
             value={values.password || ''}
