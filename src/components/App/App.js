@@ -52,19 +52,29 @@ function App() {
   const [previosSearch, setPreviosSearch] = useState(
     JSON.parse(localStorage.getItem("prevSearch")) || []
   );
-  // const [previosShortSearch, setPreviosShortSearch] = useState(
-  //   JSON.parse(localStorage.getItem("prevShortSearch")) || []
-  // );
 
   useEffect(() => {
     checkJwt();
   }, []);
 
   useEffect(() => {
-    if (path === '/movies') {
-      setSearchedMovie(previosSearch)
+    if (path === "/movies") {
+      setSearchedMovie(previosSearch);
     }
   }, []);
+
+  useEffect(() => {
+    if (path === "/saved-movies") {
+      mainApi
+        .getMovies()
+        .then((savedMovies) => {
+          setSavedMovie(savedMovies);
+        })
+        .catch((err) => {
+          console.log(`Ошибка при загрузке данных с сервера: ${err}`);
+        });
+    }
+  }, [path]);
 
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
@@ -228,11 +238,14 @@ function App() {
             if (!checked) {
               setSearchedMovie(foundMovie);
               localStorage.setItem("prevSearch", JSON.stringify(foundMovie));
-              setPreviosSearch(foundMovie)
+              setPreviosSearch(foundMovie);
             } else {
               setSearchedMovie(foundShortMovie);
-              localStorage.setItem('prevSearch', JSON.stringify(foundShortMovie));
-              setPreviosSearch(foundShortMovie)
+              localStorage.setItem(
+                "prevSearch",
+                JSON.stringify(foundShortMovie)
+              );
+              setPreviosSearch(foundShortMovie);
             }
           }
         })
@@ -254,11 +267,11 @@ function App() {
           if (!checked) {
             setSearchedMovie(foundMovie);
             localStorage.setItem("prevSearch", JSON.stringify(foundMovie));
-            setPreviosSearch(foundMovie)
+            setPreviosSearch(foundMovie);
           } else {
             setSearchedMovie(foundShortMovie);
-            localStorage.setItem('prevSearch', JSON.stringify(foundShortMovie));
-            setPreviosSearch(foundShortMovie)
+            localStorage.setItem("prevSearch", JSON.stringify(foundShortMovie));
+            setPreviosSearch(foundShortMovie);
           }
         }
       }, 1000);
