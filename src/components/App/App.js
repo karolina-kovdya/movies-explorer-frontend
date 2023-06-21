@@ -1,4 +1,10 @@
-import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  Navigate,
+  useNavigate,
+  useLocation,
+} from "react-router-dom";
 import { useState, useEffect } from "react";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import "./App.css";
@@ -19,6 +25,7 @@ import { SHORT_MOVIE } from "../../utils/contants";
 
 function App() {
   const navigate = useNavigate();
+  const path = useLocation().pathname;
 
   const [currentUser, setCurrentUser] = useState({});
 
@@ -27,7 +34,7 @@ function App() {
   const [isRegistred, setIsRegistred] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
   const [resMessage, setResMessage] = useState("");
-  const [serverError, setServerError] = useState(false)
+  const [serverError, setServerError] = useState(false);
 
   const [isLoading, setIsLoading] = useState(false);
   const [notFound, setNotFound] = useState(false);
@@ -35,18 +42,28 @@ function App() {
   const [checked, setChecked] = useState(
     JSON.parse(localStorage.getItem("checkbox")) || false
   );
-  const [chekedSave, setCheckedSave] = useState(
-    JSON.parse(localStorage.getItem("checkboxSave")) || false
-  );
+  const [chekedSave, setCheckedSave] = useState(false);
 
   const [localMovies, setLocalMovies] = useState(
     JSON.parse(localStorage.getItem("allMovies")) || []
   );
   const [searchedMovies, setSearchedMovie] = useState([]);
   const [savedMovie, setSavedMovie] = useState([]);
+  const [previosSearch, setPreviosSearch] = useState(
+    JSON.parse(localStorage.getItem("prevSearch")) || []
+  );
+  // const [previosShortSearch, setPreviosShortSearch] = useState(
+  //   JSON.parse(localStorage.getItem("prevShortSearch")) || []
+  // );
 
   useEffect(() => {
     checkJwt();
+  }, []);
+
+  useEffect(() => {
+    if (path === '/movies') {
+      setSearchedMovie(previosSearch)
+    }
   }, []);
 
   useEffect(() => {
@@ -86,7 +103,7 @@ function App() {
   }
 
   function handleRegister({ name, email, password }) {
-    setResMessage('')
+    setResMessage("");
     return mainApi
       .register(name, email, password)
       .then((res) => {
@@ -100,7 +117,7 @@ function App() {
   }
 
   function handleLogin({ email, password }) {
-    setResMessage('')
+    setResMessage("");
     return mainApi
       .authorize(email, password)
       .then((data) => {
@@ -154,8 +171,8 @@ function App() {
   function handleSignOut() {
     setLoggedIn(false);
     localStorage.clear();
-    setResMessage('')
-    setSearchedMovie([])
+    setSearchedMovie([]);
+    setChecked(false);
     navigate("/");
   }
 
@@ -188,8 +205,8 @@ function App() {
   }
 
   function searchAllMovies(param) {
-    localStorage.setItem("movieParam", JSON.stringify(param));
-    localStorage.setItem("checkBox", checked);
+    localStorage.setItem("movieParam", param);
+    localStorage.setItem("checkbox", checked);
     setIsLoading(true);
     setDisabled(true);
     setNotFound(false);
@@ -208,12 +225,20 @@ function App() {
             setNotFound(true);
           } else {
             setNotFound(false);
-            setSearchedMovie(foundMovie);
+            if (!checked) {
+              setSearchedMovie(foundMovie);
+              localStorage.setItem("prevSearch", JSON.stringify(foundMovie));
+              setPreviosSearch(foundMovie)
+            } else {
+              setSearchedMovie(foundShortMovie);
+              localStorage.setItem('prevSearch', JSON.stringify(foundShortMovie));
+              setPreviosSearch(foundShortMovie)
+            }
           }
         })
         .catch((err) => {
           console.log(err);
-          setServerError(true)
+          setServerError(true);
         });
     } else {
       setSearchedMovie([]);
@@ -226,35 +251,38 @@ function App() {
           setNotFound(true);
         } else {
           setNotFound(false);
-          if(!checked) {
+          if (!checked) {
             setSearchedMovie(foundMovie);
+            localStorage.setItem("prevSearch", JSON.stringify(foundMovie));
+            setPreviosSearch(foundMovie)
           } else {
-            setSearchedMovie(foundShortMovie)
+            setSearchedMovie(foundShortMovie);
+            localStorage.setItem('prevSearch', JSON.stringify(foundShortMovie));
+            setPreviosSearch(foundShortMovie)
           }
         }
       }, 1000);
     }
   }
 
-  function searchSaveMovie (param) {
-    localStorage.setItem("checkBoxSave", chekedSave);
+  function searchSaveMovie(param) {
     setIsLoading(true);
     setDisabled(true);
     setNotFound(false);
     const foundSavedMovie = handleSearchFilter(savedMovie, param);
-    const foundSavedShortMovie = handleShortFilter(foundSavedMovie, chekedSave)
-    if(foundSavedMovie.length === 0 || foundSavedShortMovie.length === 0) {
+    const foundSavedShortMovie = handleShortFilter(foundSavedMovie, chekedSave);
+    if (foundSavedMovie.length === 0 || foundSavedShortMovie.length === 0) {
       setIsLoading(false);
-      setDisabled(false)
+      setDisabled(false);
       setNotFound(true);
     } else {
       setNotFound(false);
       setIsLoading(false);
-      setDisabled(false)
-      if(!chekedSave) {
-        setSavedMovie(foundSavedMovie)
+      setDisabled(false);
+      if (!chekedSave) {
+        setSavedMovie(foundSavedMovie);
       } else {
-        setSavedMovie(foundSavedShortMovie)
+        setSavedMovie(foundSavedShortMovie);
       }
     }
   }
@@ -276,20 +304,22 @@ function App() {
       .deleteMovie(deletedMovie._id)
       .then(() => {
         setSavedMovie((selectedMovie) =>
-        selectedMovie.filter((i) => i._id !== deletedMovie._id))
+          selectedMovie.filter((i) => i._id !== deletedMovie._id)
+        );
       })
       .catch((err) => {
         console.log(err);
       });
   }
 
-  function handleSaveDelete (movie) {
+  function handleSaveDelete(movie) {
     const deletedMovie = savedMovie.find((i) => i._id === movie._id);
     mainApi
       .deleteMovie(deletedMovie._id)
       .then(() => {
         setSavedMovie((selectedMovie) =>
-        selectedMovie.filter((i) => i._id !== deletedMovie._id))
+          selectedMovie.filter((i) => i._id !== deletedMovie._id)
+        );
       })
       .catch((err) => {
         console.log(err);
@@ -300,10 +330,7 @@ function App() {
     <currentUserContext.Provider value={currentUser}>
       <div className="app">
         <BurgerMenu isOpen={isBurgerOpen} onClose={closeBurgerMenu} />
-        <Header 
-          loggedIn={loggedIn}
-          onBurgerMenu={handleBurgerOpen} 
-        />
+        <Header loggedIn={loggedIn} onBurgerMenu={handleBurgerOpen} />
         <Routes>
           <Route path="/" element={<Main />} />
 

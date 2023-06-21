@@ -9,9 +9,21 @@
 
 .movies__error {
     margin: 79px auto 0 auto;
+    max-width: 617px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     font-size: 22px;
+}
+
+@media screen and (max-width: 540px) { 
+    .movies__notFound {
+        font-size: 18px;
+    }
+
+    .movies__error {
+        font-size:  18px;
+        max-width: 373px 
+    }
 }
