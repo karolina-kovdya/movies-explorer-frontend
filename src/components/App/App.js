@@ -61,6 +61,8 @@ function App() {
   useEffect(() => {
     if (path === "/movies") {
       setSearchedMovie(previosSearch);
+      setCheckedSave(false);
+      setNotFound(false)
     }
   }, [path, previosSearch]);
 
@@ -71,6 +73,8 @@ function App() {
         .then((savedMovies) => {
           setSavedMovie(savedMovies);
           setViewSavedMovie(savedMovies);
+          setNotFound(false);
+          setCheckedSave(false);
         })
         .catch((err) => {
           console.log(`Ошибка при загрузке данных с сервера: ${err}`);
@@ -184,6 +188,7 @@ function App() {
   function handleSignOut() {
     setLoggedIn(false);
     localStorage.clear();
+    setPreviosSearch([]);
     setSearchedMovie([]);
     setChecked(false);
     navigate("/");
@@ -415,7 +420,7 @@ function App() {
                 /> : <Navigate to='/' />
             }
           />
-          
+
           <Route
             path="/signin"
             element={
