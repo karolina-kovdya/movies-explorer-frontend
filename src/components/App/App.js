@@ -70,6 +70,7 @@ function App() {
         .getMovies()
         .then((savedMovies) => {
           setSavedMovie(savedMovies);
+          setViewSavedMovie(savedMovies);
         })
         .catch((err) => {
           console.log(`Ошибка при загрузке данных с сервера: ${err}`);
@@ -320,9 +321,6 @@ function App() {
       });
   }
 
-  console.log(viewSavedMovie)
-  console.log(savedMovie)
-
   function handleDeleteMovie(movie) {
     const deletedMovie = savedMovie.find((i) => i.movieId === movie.id);
     mainApi
@@ -366,9 +364,8 @@ function App() {
           <Route path="/" element={<Main />} />
 
           <Route
-            path="/movies"
-            element={
-              <>
+            path="/movies" 
+            element={loggedIn ?
                 <ProtectedRoute
                   component={Movies}
                   loggedIn={loggedIn}
@@ -383,15 +380,13 @@ function App() {
                   onSave={handleSaveMovie}
                   onDelete={handleDeleteMovie}
                   serverError={serverError}
-                />
-              </>
-            }
+                /> : <Navigate to='/' />
+              }
           />
 
           <Route
             path="/saved-movies"
-            element={
-              <>
+            element={loggedIn ?
                 <ProtectedRoute
                   component={SavedMovies}
                   loggedIn={loggedIn}
@@ -403,15 +398,13 @@ function App() {
                   onSearchMovies={searchSaveMovie}
                   checked={chekedSave}
                   onCheck={handleSaveShortClick}
-                />
-              </>
+                /> : <Navigate to='/' />
             }
           />
 
           <Route
             path="/profile"
-            element={
-              <>
+            element={loggedIn ?
                 <ProtectedRoute
                   component={Profile}
                   loggedIn={loggedIn}
@@ -419,18 +412,10 @@ function App() {
                   onSignOut={handleSignOut}
                   resMessage={resMessage}
                   setResMessage={setResMessage}
-                />
-              </>
+                /> : <Navigate to='/' />
             }
           />
-
-          <Route
-            path="/movies"
-            element={
-              loggedIn ? <Navigate to="/movies" /> : <Navigate to="/signup" />
-            }
-          />
-
+          
           <Route
             path="/signin"
             element={
