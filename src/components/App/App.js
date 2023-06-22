@@ -61,7 +61,7 @@ function App() {
     if (path === "/movies") {
       setSearchedMovie(previosSearch);
     }
-  }, []);
+  }, [path, previosSearch]);
 
   useEffect(() => {
     if (path === "/saved-movies") {
