@@ -50,6 +50,7 @@ function Profile({ onSignOut, onEdit, resMessage, setResMessage, isRegistred }) 
     });
     setTimeout(() => {
       SetIsDisabled(isValid)
+      setResMessage('')
     }, 1000)
   }
 
