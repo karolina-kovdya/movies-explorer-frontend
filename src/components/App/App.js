@@ -105,7 +105,11 @@ function App() {
         .then((res) => {
           setCurrentUser(res);
           setLoggedIn(true);
-          navigate("/movies");
+          if (path === '/' || path === '/signup' || path === '/signin') {
+            navigate('/movies')
+          } else if (path === '/movies' || path === '/saved-movies' || path === '/profile') {
+            navigate(-1)
+          }
         })
         .catch((err) => {
           if (err === "Ошибка: 400") {
