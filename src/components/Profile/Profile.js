@@ -3,7 +3,8 @@ import { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { currentUserContext } from "../../context/CurrentUserContext";
 import { useValidation } from "../../hooks/UseValidation";
-function Profile({ onSignOut, onEdit, resMessage, isRegistred }) {
+
+function Profile({ onSignOut, onEdit, resMessage, setResMessage, isRegistred }) {
   const currentUser = useContext(currentUserContext);
   const { values, handleChange, errors, isValid } = useValidation({
     name: currentUser.name,
@@ -11,15 +12,36 @@ function Profile({ onSignOut, onEdit, resMessage, isRegistred }) {
   });
 
   const [isDisabled, SetIsDisabled] = useState(isValid);
+  const [disabled, setDisabled] = useState(false)
+
+  console.log((currentUser.name === values.name) && (currentUser.email === values.email))
+
 
   useEffect(() => {
-    currentUser.name !== values.name && currentUser.email !== values.email
-      ? SetIsDisabled(!isValid)
-      : SetIsDisabled(isValid);
+    values.name = currentUser.name;
+    values.email = currentUser.email;
+  }, [])
+
+  useEffect(() => {
+    if(currentUser.name === values.name && currentUser.email === values.email) {
+      SetIsDisabled(!isDisabled)
+    } else {
+      SetIsDisabled(isDisabled)
+    }
   }, []);
 
+  useEffect(() => {
+    if (currentUser.name === values.name && currentUser.email === values.email) {
+      setDisabled(true)
+    } else {
+      setDisabled(false)
+    }
+  }, [currentUser.email, currentUser.name, values, values.email, values.name]);
+
   function editProfile() {
-    SetIsDisabled(isValid);
+    setResMessage('')
+    SetIsDisabled(!isDisabled);
+    setDisabled(true)
   }
 
   function handleEdit(e) {
@@ -29,8 +51,9 @@ function Profile({ onSignOut, onEdit, resMessage, isRegistred }) {
       name: values.name,
       email: values.email,
     });
-
-    SetIsDisabled(!isValid)
+    setTimeout(() => {
+      SetIsDisabled(isValid)
+    }, 1000)
   }
 
   return (
@@ -46,8 +69,8 @@ function Profile({ onSignOut, onEdit, resMessage, isRegistred }) {
             type="text"
             name="name"
             placeholder="Имя"
-            defaultValue={currentUser.name || ""}
-            pattern="[a-zA-Zа-яА-Я-\s]*"
+            value={values.name || ''}
+            pattern="[a-zA-Zа-яА-Я\-\s]*"
             minLength="2"
             maxLength="30"
             onChange={(evt) => handleChange(evt)}
@@ -62,8 +85,8 @@ function Profile({ onSignOut, onEdit, resMessage, isRegistred }) {
             type="text"
             name="email"
             placeholder="email"
-            defaultValue={currentUser.email || ""}
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            value={values.email || ''}
+            pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,4}$"
             minLength="2"
             maxLength="30"
             onChange={(evt) => handleChange(evt)}
@@ -107,7 +130,7 @@ function Profile({ onSignOut, onEdit, resMessage, isRegistred }) {
             <button
               type="submit"
               className="profile__button"
-              disabled={!isValid || errors.name || errors.email}
+              disabled={!isValid || disabled || errors.name || errors.email}
             >
               Сохранить
             </button>

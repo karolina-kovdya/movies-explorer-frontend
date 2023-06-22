@@ -400,6 +400,7 @@ function App() {
                   onEdit={handleUpdateUser}
                   onSignOut={handleSignOut}
                   resMessage={resMessage}
+                  setResMessage={setResMessage}
                 />
               </>
             }

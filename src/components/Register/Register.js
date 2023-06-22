@@ -40,7 +40,7 @@ function Register({onSignUp, resMessage, isRegistred}) {
             className="register__input" 
             type="text" 
             name="name" 
-            pattern="[a-zA-Zа-яА-Я-\s]*"
+            pattern="[a-zA-Zа-яА-Я\-\s]*"
             placeholder="поле содержит только латиницу, кириллицу, пробел или дефис"
             value={values.name || ''}
             onChange={(evt) => handleChange(evt)}
