@@ -1,6 +1,7 @@
 import "./MoviesCard.css";
 import { useContext } from "react";
 import { currentUserContext } from "../../context/CurrentUserContext";
+import { Link } from "react-router-dom";
 
 function MoviesCard(props) {
   const currentUser = useContext(currentUserContext)
@@ -34,7 +35,9 @@ function MoviesCard(props) {
   return (
     <li className="moviesCard">
       <div className="moviesCard__container">
-        <img src={props.url} alt="Заставка фильма" className="moviesCard__image" />
+        <Link to={props.trailerLink} target="_blank">
+          <img src={props.url} alt="Заставка фильма" className="moviesCard__image" />
+        </Link>
         <div className="moviesCard__elements">
           <h2 className="moviesCard__title">{props.nameRu}</h2>
           {props.component === "movies" ? 

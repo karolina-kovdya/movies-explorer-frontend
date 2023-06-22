@@ -50,6 +50,7 @@ function MoviesCardList({ movies, onSave, onDelete, savedMovie, disabled }) {
                   movie={movie}
                   key={movie.id}
                   url={`https://api.nomoreparties.co/${movie.image.url}`}
+                  trailerLink={movie.trailerLink}
                   nameRu={movie.nameRU}
                   duration={movie.duration}
                   onSave={onSave}
@@ -70,6 +71,7 @@ function MoviesCardList({ movies, onSave, onDelete, savedMovie, disabled }) {
                   movie={movie}
                   key={movie._id}
                   url={movie.image}
+                  trailerLink={movie.trailerLink}
                   nameRu={movie.nameRU}
                   duration={movie.duration}
                   component="savedMovies"

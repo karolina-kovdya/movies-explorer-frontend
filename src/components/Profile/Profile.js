@@ -12,10 +12,7 @@ function Profile({ onSignOut, onEdit, resMessage, setResMessage, isRegistred }) 
   });
 
   const [isDisabled, SetIsDisabled] = useState(isValid);
-  const [disabled, setDisabled] = useState(false)
-
-  console.log((currentUser.name === values.name) && (currentUser.email === values.email))
-
+  const [disabled, setDisabled] = useState(false);
 
   useEffect(() => {
     values.name = currentUser.name;
