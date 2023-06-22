@@ -49,6 +49,7 @@ function App() {
   );
   const [searchedMovies, setSearchedMovie] = useState([]);
   const [savedMovie, setSavedMovie] = useState([]);
+  const [viewSavedMovie, setViewSavedMovie] = useState(savedMovie || []);
   const [previosSearch, setPreviosSearch] = useState(
     JSON.parse(localStorage.getItem("prevSearch")) || []
   );
@@ -83,6 +84,7 @@ function App() {
         .then(([userInfo, movies]) => {
           setCurrentUser(userInfo);
           setSavedMovie(movies);
+          setViewSavedMovie(movies)
         })
         .catch((err) => {
           console.log(err);
@@ -293,9 +295,9 @@ function App() {
       setIsLoading(false);
       setDisabled(false);
       if (!chekedSave) {
-        setSavedMovie(foundSavedMovie);
+        setViewSavedMovie(foundSavedMovie);
       } else {
-        setSavedMovie(foundSavedShortMovie);
+        setViewSavedMovie(foundSavedShortMovie);
       }
     }
   }
@@ -303,13 +305,23 @@ function App() {
   function handleSaveMovie(movie) {
     mainApi
       .saveMovie(movie)
-      .then((savedMovie) => {
-        setSavedMovie((prev) => [...prev, savedMovie]);
+      .then((saveMovie) => {
+        // setSavedMovie((prev) => [...prev, saveMovie]);
+        const viewMovie = [
+          ...viewSavedMovie,
+          saveMovie
+        ]
+        // localStorage.setItem('savedMovie', JSON.stringify(viewMovie))
+        setViewSavedMovie(viewMovie);
+        setSavedMovie(viewMovie)
       })
       .catch((err) => {
         console.log(err);
       });
   }
+
+  console.log(viewSavedMovie)
+  console.log(savedMovie)
 
   function handleDeleteMovie(movie) {
     const deletedMovie = savedMovie.find((i) => i.movieId === movie.id);
@@ -319,6 +331,9 @@ function App() {
         setSavedMovie((selectedMovie) =>
           selectedMovie.filter((i) => i._id !== deletedMovie._id)
         );
+        setViewSavedMovie((selectedMovie) =>
+        selectedMovie.filter((i) => i._id !== deletedMovie._id)
+      );
       })
       .catch((err) => {
         console.log(err);
@@ -326,13 +341,16 @@ function App() {
   }
 
   function handleSaveDelete(movie) {
-    const deletedMovie = savedMovie.find((i) => i._id === movie._id);
+    const deletedMovie = viewSavedMovie.find((i) => i._id === movie._id);
     mainApi
       .deleteMovie(deletedMovie._id)
       .then(() => {
         setSavedMovie((selectedMovie) =>
           selectedMovie.filter((i) => i._id !== deletedMovie._id)
         );
+        setViewSavedMovie((selectedMovie) =>
+        selectedMovie.filter((i) => i._id !== deletedMovie._id)
+      );
       })
       .catch((err) => {
         console.log(err);
@@ -377,7 +395,7 @@ function App() {
                 <ProtectedRoute
                   component={SavedMovies}
                   loggedIn={loggedIn}
-                  movies={savedMovie}
+                  movies={viewSavedMovie}
                   onDelete={handleSaveDelete}
                   isLoading={isLoading}
                   disabled={disabled}
