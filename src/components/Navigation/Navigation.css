@@ -1,6 +1,6 @@
 .navTab {
     padding-top: 2px;
-    width: calc(100% - 225px);
+    width: calc(100% - 85px);
     display: flex;
     justify-content: space-between;
     margin: 0 0 0 44px;
@@ -37,11 +37,27 @@
     font-weight: 500;
 }
 
+.navTab__link_active {
+    font-weight: 500;
+}
+
+.navTab__link_dark {
+    color: #fff;
+}
+
 .navTab__profile-link {
     width: 100px;
     height: 32px;
-    background-image: url(../../images/profile.svg);
     border-radius: 20px;
+}
+
+.navTab__profile-link_white {
+    background-image: url(../../images/profile.svg);
+}
+
+.navTab__profile-link_dark {
+    background-image: url(../../images/profileDark.svg);
+    object-fit: cover;
 }
 
 .navTab__profile-link:hover {
@@ -52,12 +68,19 @@
     display: none;
     padding: 0;
     margin: 0;
-    background-image: url(../../images/burger.svg);
     object-fit: cover;
     border: none;
     background-color: inherit;
     width: 44px;
     height: 44px;
+}
+
+.navTab__burger-btn_white {
+    background-image: url(../../images/burger.svg);
+}
+
+.navTab__burger-btn_dark {
+    background-image: url(../../images/menuIconColor.svg);
 }
 
 @media screen and (max-width: 870px) {
@@ -76,6 +99,7 @@
     .navTab__burger-btn {
         display: block;
     }
+
 }
 
 @media screen and (max-width: 540px) {
@@ -86,10 +110,17 @@
         }
 
         .navTab__burger-btn {
-            background-image: url(../../images/burger320.svg);
             width: 40px;
             height: 43px;
             padding: 0 0 4px 2px;
+        }
+
+        .navTab__burger-btn_white {
+            background-image: url(../../images/burger320.svg);
+        }
+
+        .navTab__burger-btn_dark {
+            background-image: url(../../images/menuColor320.svg);
         }
 }
 

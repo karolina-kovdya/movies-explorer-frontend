@@ -1,27 +1,19 @@
 import "./SavedMovies.css";
-import { savedMovies } from "../../utils/contants";
 import SearchForm from "../SearchForm/SearchForm";
-import MoviesCard from "../MoviesCard/MoviesCard";
+import Preloader from "../Preloader/Preloader";
+import MoviesCardList from "../MoviesCardList/MoviesCardList";
 
-function SavedMovies() {
+function SavedMovies(props) {
+
   return (
     <div className="savedMovies">
-      <SearchForm />
-      <section className="savedMovies__cards">
-        <ul className="savedMovies__list">
-          {savedMovies.map((movie) => {
-            return (
-              <MoviesCard
-                key={movie._id}
-                url={movie.url}
-                nameRu={movie.nameRu}
-                duration={movie.duration}
-                component="savedMovies"
-              />
-            );
-          })}
-        </ul>
-      </section>
+      <SearchForm onSearch={props.onSearchMovies} disabled={props.disabled} isChecked={props.checked} onChangeCheck={props.onCheck}/>
+      {props.isLoading && <Preloader />}
+      {props.notFound ? (
+        <div className="movies__notFound">Ничего не найдено</div>
+      ) : (
+        <MoviesCardList movies={props.movies} onDelete={props.onDelete} disabled={props.disabled}/>
+      )}
     </div>
   );
 }

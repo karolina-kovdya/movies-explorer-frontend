@@ -1,3 +1,8 @@
+.login {
+    display: block;
+    height: 72px;
+}
+
 .login__input {
     width: 100%;
     border-top: none;
@@ -25,11 +30,26 @@
 }
 
 .login__input {
-    margin: 5px 0 24px 0;
+    margin: 5px 0 0 0;
     padding: 0 0 10px 0;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
+}
+
+.login__error {
+    display: none;
+    margin-top: 2px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    color: #ff3055;
+}
+
+.login__error_active {
+    display: block;
 }
